@@ -21,13 +21,19 @@ namespace Creeper.Web.Controllers
             return View();
         }
 
-        [HttpPost]
-        public ActionResult List(int PageSize, int PageIndex)
+        /// <summary>
+        /// _search=false&nd=1512731833438&rows=20&page=1&sidx=&sord=asc
+        /// </summary>
+        /// <param name="PageSize"></param>
+        /// <param name="PageIndex"></param>
+        /// <returns></returns>
+        [HttpGet]
+        public ActionResult List(bool _search, string nd, int rows, int page,string sidx, string sord)
         {
             var result = new AllService().GetAgentLevel(new ParamAgentLevel
             {
-                PageIndex = PageIndex,
-                PageSize = PageSize
+                PageIndex = page,
+                PageSize = rows
             });
 
             return Content(ToolsHelper._ConvertTools.SerializeObject(result));

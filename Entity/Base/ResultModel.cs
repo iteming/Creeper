@@ -1,4 +1,5 @@
-﻿using Common.Tools;
+﻿using System;
+using Common.Tools;
 
 namespace Entity.Base
 {
@@ -129,6 +130,24 @@ namespace Entity.Base
             result.Message = MsgStr;
             result.rows = ResultObj;
             result.records = Count;
+            return result;
+        }
+
+        /// <summary>
+        /// 返回规则类（带分页）2
+        /// </summary>
+        public static ResultModelPager<T> SetResultPager<T>(this string MsgStr, T ResultObj, int Count = 0, int Page = 0, int Size = 0)
+        {
+            ResultModelPager<T> result = new ResultModelPager<T>();
+            if (ResultObj == null)
+                result.Ret = 0;
+            else
+                result.Ret = 1;
+            result.Message = MsgStr;
+            result.rows = ResultObj;
+            result.records = Count;
+            result.total = Convert.ToInt32(Count % Size == 0 ? Count / Size : Count / Size + 1);
+            result.page = Page;
             return result;
         }
     }

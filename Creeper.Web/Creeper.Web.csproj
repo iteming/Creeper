@@ -346,6 +346,11 @@
     <Content Include="public\plugins\font-awesome-4.7.0\css\font-awesome.min.css" />
     <Content Include="public\plugins\font-awesome-4.7.0\fonts\fontawesome-webfont.svg" />
     <Content Include="public\plugins\font-awesome-4.7.0\HELP-US-OUT.txt" />
+    <Content Include="public\plugins\jqGrid\grid.locale-cn.js" />
+    <Content Include="public\plugins\jqGrid\jquery.jqGrid.min.js" />
+    <Content Include="public\plugins\jqGrid\ui.jqgrid-bootstrap-ui.css" />
+    <Content Include="public\plugins\jqGrid\ui.jqgrid-bootstrap.css" />
+    <Content Include="public\plugins\jqGrid\ui.jqgrid.css" />
     <Content Include="public\plugins\jquery-file-upload\.gitignore" />
     <Content Include="public\plugins\jquery-file-upload\angularjs.html" />
     <Content Include="public\plugins\jquery-file-upload\basic-plus.html" />
@@ -764,6 +769,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Shared\_LayoutLogin.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="public\plugins\jqGrid\jqGrid-master.zip" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Net.Http;
 using System.Text;
 using System.Net;
 
@@ -19,7 +17,6 @@ namespace Common.Tools
         public string Postdata { get; set; }
         public bool KeepAlive { get; set; }
         public CookieContainer CookieContainer { get; set; }
-        public string Response_SessionID { get; set; }
     }
 
     public class HttpHelper
@@ -39,7 +36,7 @@ namespace Common.Tools
                 request.Headers = mc.Headers;
                 request.KeepAlive = mc.KeepAlive;
 
-                if (mc.CookieContainer!=null)
+                if (mc.CookieContainer != null)
                     request.CookieContainer = mc.CookieContainer;
 
                 if (mc.Accept.Contains("image"))
@@ -62,7 +59,7 @@ namespace Common.Tools
                 }
 
                 // 接受响应
-                WebResponse response = request.GetResponse();
+                HttpWebResponse response = (HttpWebResponse)request.GetResponse();
                 Stream stream = response.GetResponseStream();
 
                 if (mc.Accept.Contains("image"))
@@ -105,13 +102,13 @@ namespace Common.Tools
                     stream.Close();
                 }
 
-                // 获取结果SessionID值
-                if (response.Headers.AllKeys.Contains("Set-Cookie"))
-                    mc.Response_SessionID = GetSessionId(response.Headers["Set-Cookie"]);
+                // 保存cookies
+                if (mc.CookieContainer == null)
+                    mc.CookieContainer = new CookieContainer();
+                mc.CookieContainer.Add(response.Cookies);
 
                 // 关闭响应
                 response.Close();
-                mc.CookieContainer = request.CookieContainer; //保存cookies
                 return returnStr;
             }
             catch(Exception ex)
@@ -122,6 +119,10 @@ namespace Common.Tools
 
         private string GetSessionId(string Cookie)
         {
+            //// 获取结果SessionID值
+            //if (response.Headers.AllKeys.Contains("Set-Cookie"))
+            //    mc.Response_SessionID = GetSessionId(response.Headers["Set-Cookie"]);
+
             string[] strArray = Cookie.Split(';');
             foreach (var item in strArray)
             {
@@ -132,55 +133,6 @@ namespace Common.Tools
                 }
             }
             return string.Empty;
-        }
-
-        public string GetDataByGet(string url)
-        {
-            try
-            {
-                HttpClient client = new HttpClient();
-
-                return client.GetStringAsync(url).Result;
-            }
-            catch {
-                return null;
-            }
-        }
-
-        public string GetDataByPost(string url, object entity)
-        {
-            try
-            {
-                HttpClient client = new HttpClient();
-                return client.PostAsJsonAsync(url, entity).Result.Content.ReadAsStringAsync().Result;
-            }
-            catch {
-                return null;
-            }
-        }
-
-        /// <summary>
-        /// 通过Post获取
-        /// </summary>
-        /// <param name="url">地址</param>
-        /// <param name="postData">数据</param>
-        /// <param name="encode">页面编码</param>
-        /// <returns></returns>
-        public string GetDataByPostForm(string url, string postData)
-        {
-            WebClient client = new WebClient();
-            client.Headers.Add("User-Agent", "Mozilla/5.0 (Windows NT 6.2; WOW64; rv:26.0) Gecko/20100101 Firefox/26.0");
-            client.Headers.Add("Content-Type", "application/x-www-form-urlencoded");
-            client.Headers.Add("ContentLength", postData.Length.ToString());
-            client.Encoding = System.Text.Encoding.UTF8;
-            try
-            {
-                return client.UploadString(url, postData);
-            }
-            catch
-            {
-                throw new WebException("http请求异常");
-            }
         }
     }
 }

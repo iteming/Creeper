@@ -82,7 +82,7 @@ namespace Service
         /// </summary>
         /// <param name="param">查询参数</param>
         /// <returns></returns>
-        public ResultModel<List<AgentLevel>> GetAgentLevel(ParamAgentLevel param)
+        public ResultModelPager<List<AgentLevel>> GetAgentLevel(ParamAgentLevel param)
         {
             try
             {
@@ -102,12 +102,16 @@ namespace Service
                             rep.Get(filter).ToList() :
                             rep.Get().ToList();
 
-                return ConstClass.Success.SetResult(list);
+                var count = filter != null ?
+                            rep.Get(filter).Count() :
+                            rep.Get().Count();
+
+                return ConstClass.Success.SetResultPager(list, count, param.PageIndex, param.PageSize);
             }
             catch (Exception e)
             {
                 LogHelper.WriteToLog("[异常]:" + e, exLogFile);
-                return ConstClass.Exception.SetResult<List<AgentLevel>>(null);
+                return ConstClass.Exception.SetResultPager<List<AgentLevel>>(null);
             }
         }
 

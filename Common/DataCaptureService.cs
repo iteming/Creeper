@@ -26,14 +26,13 @@ namespace Common
                 ContentType = "application/x-www-form-urlencoded",
                 Referer = "http://platform.xy.qianz.com/Pages/login.html",
                 KeepAlive = true,
-                //CookieContainer = mc.CookieContainer == null ? new CookieContainer() : mc.CookieContainer,
+                CookieContainer = mc.CookieContainer ?? new CookieContainer(),
                 Headers = new WebHeaderCollection
                 {
                     {"Accept-Language", "zh-cn"},
                     {"Accept-Encoding", "gzip,deflate"},
                 },
                 Postdata = "",
-                Response_SessionID = mc.Response_SessionID,
             };
             var data = ToolsHelper._HttpHelper.SendAsyncHttp(ref mc);
             return data;
@@ -56,15 +55,13 @@ namespace Common
                 ContentType = "application/x-www-form-urlencoded",
                 Referer = "http://platform.xy.qianz.com/Pages/login.html",
                 KeepAlive = true,
-                //CookieContainer = mc.CookieContainer == null ? new CookieContainer() : mc.CookieContainer,
+                CookieContainer = mc.CookieContainer ?? new CookieContainer(),
                 Headers = new WebHeaderCollection
                 {
                     {"Accept-Language", "zh-cn"},
                     {"Accept-Encoding", "gzip,deflate"},
-                    {"Cookie", string.Format("ASP.NET_SessionId={0}; nfine_currentmoduleid=30", mc.Response_SessionID)}
                 },
                 Postdata = postdata,
-                Response_SessionID = mc.Response_SessionID,
             };
             var data = ToolsHelper._HttpHelper.SendAsyncHttp(ref mc);
             LogHelper.WriteToLog("Login[登录]:" + data, strFileName);
@@ -90,15 +87,13 @@ namespace Common
                 ContentType = "application/x-www-form-urlencoded",
                 Referer = "http://platform.xy.qianz.com/Pages/ProductPages/ProductsManage.html",
                 KeepAlive = true,
-                //CookieContainer = mc.CookieContainer == null ? new CookieContainer() : mc.CookieContainer,
+                CookieContainer = mc.CookieContainer??new CookieContainer(),
                 Headers = new WebHeaderCollection
                 {
                     {"Accept-Language", "zh-cn,zh"},
                     {"Accept-Encoding", "gzip,deflate"},
-                    {"Cookie", string.Format("ASP.NET_SessionId={0}; nfine_currentmoduleid=30", mc.Response_SessionID)}
                 },
                 Postdata = "",
-                Response_SessionID = mc.Response_SessionID,
             };
 
             var data = ToolsHelper._HttpHelper.SendAsyncHttp(ref mc);
@@ -124,15 +119,13 @@ namespace Common
                 ContentType = "application/x-www-form-urlencoded",
                 Referer = "http://platform.xy.qianz.com/Pages/AgencyPages/ProductAgencyLevel.html",
                 KeepAlive = true,
-                //CookieContainer = mc.CookieContainer == null ? new CookieContainer() : mc.CookieContainer,
+                CookieContainer = mc.CookieContainer ?? new CookieContainer(),
                 Headers = new WebHeaderCollection
                 {
                     {"Accept-Language", "zh-cn,zh"},
                     {"Accept-Encoding", "gzip,deflate"},
-                    {"Cookie", string.Format("ASP.NET_SessionId={0}; nfine_currentmoduleid=30", mc.Response_SessionID)}
                 },
                 Postdata = "",
-                Response_SessionID = mc.Response_SessionID,
             };
 
             var data = ToolsHelper._HttpHelper.SendAsyncHttp(ref mc);
@@ -160,17 +153,14 @@ namespace Common
                 Method = "GET",
                 Accept = "application/json, text/javascript, */*",
                 ContentType = "application/x-www-form-urlencoded",
-                //Referer = "http://platform.xy.qianz.com/Pages/AgencyPages/ProductAgencyLevel.html",
                 KeepAlive = true,
-                //CookieContainer = mc.CookieContainer == null ? new CookieContainer() : mc.CookieContainer,
+                CookieContainer = mc.CookieContainer ?? new CookieContainer(),
                 Headers = new WebHeaderCollection
                 {
                     {"Accept-Language", "zh-cn,zh"},
                     {"Accept-Encoding", "gzip,deflate"},
-                    {"Cookie", string.Format("ASP.NET_SessionId={0}; nfine_currentmoduleid=30", mc.Response_SessionID)}
                 },
                 Postdata = "",
-                Response_SessionID = mc.Response_SessionID,
             };
 
             var data = ToolsHelper._HttpHelper.SendAsyncHttp(ref mc);
@@ -186,7 +176,6 @@ namespace Common
         public string GetAllUser(ref MyClass mc, int gid = 0)
         {
             _pageSize = 20000;
-            //_sortIndex = "RegisterTime";
             _sortIndex = "UserId";
             string domain = "http://platform.xy.qianz.com/DataCenter/StatisticalData.aspx?method=EachProductUserDistributionDetail";
             domain += string.Format("&gid={0}&gameuid=", gid);
@@ -200,15 +189,13 @@ namespace Common
                 ContentType = "application/x-www-form-urlencoded",
                 Referer = "http://platform.xy.qianz.com/Pages/GamePages/GameUserManage.html",
                 KeepAlive = true,
-                //CookieContainer = mc.CookieContainer == null ? new CookieContainer() : mc.CookieContainer,
+                CookieContainer = mc.CookieContainer ?? new CookieContainer(),
                 Headers = new WebHeaderCollection
                 {
                     {"Accept-Language", "zh-cn,zh"},
                     {"Accept-Encoding", "gzip,deflate"},
-                    {"Cookie", string.Format("ASP.NET_SessionId={0}; nfine_currentmoduleid=30", mc.Response_SessionID)}
                 },
                 Postdata = "",
-                Response_SessionID = mc.Response_SessionID,
             };
 
             var data = ToolsHelper._HttpHelper.SendAsyncHttp(ref mc);
@@ -238,17 +225,14 @@ namespace Common
                 Method = "GET",
                 Accept = "application/json, text/javascript, */*",
                 ContentType = "application/x-www-form-urlencoded",
-                //Referer = "http://platform.xy.qianz.com/Pages/GamePages/GameUserManage.html",
                 KeepAlive = true,
-                //CookieContainer = mc.CookieContainer == null ? new CookieContainer() : mc.CookieContainer,
+                CookieContainer = mc.CookieContainer ?? new CookieContainer(),
                 Headers = new WebHeaderCollection
                 {
                     {"Accept-Language", "zh-cn,zh"},
                     {"Accept-Encoding", "gzip,deflate"},
-                    {"Cookie", string.Format("ASP.NET_SessionId={0}; nfine_currentmoduleid=30", mc.Response_SessionID)}
                 },
                 Postdata = "",
-                Response_SessionID = mc.Response_SessionID,
             };
 
             var data = ToolsHelper._HttpHelper.SendAsyncHttp(ref mc);
@@ -276,17 +260,14 @@ namespace Common
                 Method = "GET",
                 Accept = "application/json, text/javascript, */*",
                 ContentType = "application/x-www-form-urlencoded",
-                //Referer = "http://platform.xy.qianz.com/Pages/GamePages/GameUserManage.html",
                 KeepAlive = true,
-                //CookieContainer = mc.CookieContainer == null ? new CookieContainer() : mc.CookieContainer,
+                CookieContainer = mc.CookieContainer ?? new CookieContainer(),
                 Headers = new WebHeaderCollection
                 {
                     {"Accept-Language", "zh-cn,zh"},
                     {"Accept-Encoding", "gzip,deflate"},
-                    {"Cookie", string.Format("ASP.NET_SessionId={0}; nfine_currentmoduleid=30", mc.Response_SessionID)}
                 },
                 Postdata = "",
-                Response_SessionID = mc.Response_SessionID,
             };
 
             var data = ToolsHelper._HttpHelper.SendAsyncHttp(ref mc);
@@ -316,17 +297,14 @@ namespace Common
                 Method = "GET",
                 Accept = "application/json, text/javascript, */*",
                 ContentType = "application/x-www-form-urlencoded",
-                //Referer = "http://platform.xy.qianz.com/Pages/AgencyPages/ProductAgencyLevel.html",
                 KeepAlive = true,
-                //CookieContainer = mc.CookieContainer == null ? new CookieContainer() : mc.CookieContainer,
+                CookieContainer = mc.CookieContainer ?? new CookieContainer(),
                 Headers = new WebHeaderCollection
                 {
                     {"Accept-Language", "zh-cn,zh"},
                     {"Accept-Encoding", "gzip,deflate"},
-                    {"Cookie", string.Format("ASP.NET_SessionId={0}; nfine_currentmoduleid=30", mc.Response_SessionID)}
                 },
                 Postdata = "",
-                Response_SessionID = mc.Response_SessionID,
             };
 
             var data = ToolsHelper._HttpHelper.SendAsyncHttp(ref mc);
@@ -350,17 +328,14 @@ namespace Common
                 Method = "GET",
                 Accept = "application/json, text/javascript, */*",
                 ContentType = "application/x-www-form-urlencoded",
-                //Referer = "http://platform.xy.qianz.com/Pages/AgencyPages/ProductAgencyLevel.html",
                 KeepAlive = true,
-                //CookieContainer = mc.CookieContainer == null ? new CookieContainer() : mc.CookieContainer,
+                CookieContainer = mc.CookieContainer ?? new CookieContainer(),
                 Headers = new WebHeaderCollection
                 {
                     {"Accept-Language", "zh-cn,zh"},
                     {"Accept-Encoding", "gzip,deflate"},
-                    {"Cookie", string.Format("ASP.NET_SessionId={0}; nfine_currentmoduleid=30", mc.Response_SessionID)}
                 },
                 Postdata = "",
-                Response_SessionID = mc.Response_SessionID,
             };
 
             var data = ToolsHelper._HttpHelper.SendAsyncHttp(ref mc);
@@ -386,17 +361,14 @@ namespace Common
                 Method = "GET",
                 Accept = "application/json, text/javascript, */*",
                 ContentType = "application/x-www-form-urlencoded",
-                //Referer = "http://platform.xy.qianz.com/Pages/GamePages/GameUserManage.html",
                 KeepAlive = true,
-                //CookieContainer = mc.CookieContainer == null ? new CookieContainer() : mc.CookieContainer,
+                CookieContainer = mc.CookieContainer ?? new CookieContainer(),
                 Headers = new WebHeaderCollection
                 {
                     {"Accept-Language", "zh-cn,zh"},
                     {"Accept-Encoding", "gzip,deflate"},
-                    {"Cookie", string.Format("ASP.NET_SessionId={0}; nfine_currentmoduleid=30", mc.Response_SessionID)}
                 },
                 Postdata = "",
-                Response_SessionID = mc.Response_SessionID,
             };
 
             var data = ToolsHelper._HttpHelper.SendAsyncHttp(ref mc);
