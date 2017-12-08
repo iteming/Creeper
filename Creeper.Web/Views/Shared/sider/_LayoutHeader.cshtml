@@ -1,0 +1,36 @@
+﻿@using Creeper.Web.Comm
+
+<div class="header">
+    <div class="logo">
+        <a href="/Home/Index"><img src="/public/img/cms/logo_new.png"></a>
+    </div>
+    <div class="menu_ctl show_block">
+        <img src="/public/img/cms/menu_btn.png">
+    </div>
+
+    @if (SessionTools.Admin != null)
+    {
+        <div class="usr_center right wt_dd show_block">
+            <div class="photo"><img src="/public/img/avatar/avatar-iteming.png"></div>
+            <div class="usr_info left">
+                <h4>@SessionTools.Admin.RoleName</h4>
+            </div>
+            <div style="dispaly: none;" class="drop_down">
+                <div class="photo_box">
+                    <a href="#">
+                        <div class="photo_big"><img src="/public/img/avatar/avatar-iteming.png"></div>
+                        <h5>@SessionTools.Admin.RoleName</h5>
+                        <p>最后登录时间: @DateTime.Now.ToString("yyyy-MM-dd")</p>
+                    </a>
+                </div>
+                <div class="bottom_part">
+                    <a href="/Account/Logout" class="btn btn-large btn-block btn-danger">注销</a>
+                </div>
+            </div>
+        </div>
+    }
+    <div class="header_opr right">
+        <div class="opr_single wt_dd left alert show_block"></div>
+    </div>
+
+</div>

@@ -1,0 +1,372 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <!--Mobile Meta-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>企业管理系统 | 网站信息</title>
+    <meta name="keywords">
+    <meta name="description">
+    <link rel="stylesheet" href="/public/styles/style.css">
+    <link rel="stylesheet" href="/public/plugins/Flat-UI/css/vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/public/plugins/Flat-UI/css/flat-ui.css">
+    <link rel="stylesheet" href="/public/plugins/font-awesome-4.7.0/css/font-awesome.css">
+    <link rel="stylesheet" href="/public/plugins/toastr/toastr.css">
+    <link rel="stylesheet" href="/public/plugins/animations/animations.css">
+    <link rel="stylesheet" href="/public/plugins/parsley/css/parsley.css">
+    <link rel="stylesheet" href="/public/plugins/pagination/pagination.css">
+    <link rel="stylesheet" href="/public/plugins/bootstrap-datepicker/css/datepicker.css">
+    <link rel="stylesheet" href="/public/styles/cms/frame.css">
+    <link rel="stylesheet" href="/public/styles/cms/main.css">
+    <link rel="stylesheet" href="/public/styles/cms/adpat.css">
+    <link rel="stylesheet" href="/public/styles/cms/jquery.mCustomScrollbar.css">
+    <link rel="stylesheet" href="/public/styles/cms/box.css">
+    <link rel="stylesheet" href="/public/styles/loading.css">
+    <link rel="shortcut icon" href="/public/img/cms/favicon.ico">
+    <link rel="stylesheet" href="/public/plugins/jquery-file-upload/css/jquery.fileupload.css">
+    <link rel="stylesheet" href="/public/styles/loading.css">
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @RenderSection("styles", required: false)
+  </head>
+  <body>
+    @RenderBody()
+    <div class="header">
+      <div class="logo"><a href="/cms/index"><img src="/public/img/cms/logo_new.png"></a></div>
+      <div class="menu_ctl show_block"><img src="/public/img/cms/menu_btn.png"></div>
+      <div class="usr_center right wt_dd show_block">
+        <div class="photo"><img src="/public/img/avatar/avatar-iteming.png"></div>
+        <div class="usr_info left">
+          <h4>系统管理员</h4>
+        </div>
+        <div style="dispaly: none;" class="drop_down">
+          <div class="photo_box"><a href="/cms/user/center">
+              <div class="photo_big"><img src="/public/img/avatar/avatar-iteming.png"></div>
+              <h5>系统管理员</h5>
+              <p>最后登录时间: 2016-12-15</p></a></div>
+          <!--.center_part
+          p(style='margin-bottom:0px;'): a(href='/cms/user/center') 用户资料
+          p(style='margin-bottom:0px;'): a(href='#') 登录记录
+          -->
+          <div class="bottom_part"><a href="/cms/user/forget" class="btn btn-large btn-block btn-inverse">设置密码</a><a href="/cms/logout" class="btn btn-large btn-block btn-danger">注销</a></div>
+        </div>
+      </div>
+      <div class="header_opr right">
+        <div class="opr_single wt_dd left alert show_block"></div>
+      </div>
+    </div>
+    <div class="sider_bar">
+      <div class="relative_box">
+        <div class="menu_title">
+          <div class="icon left"></div>
+          <p>菜单/MENU</p>
+        </div>
+        <div style="top:40px" class="menu_list">
+          <div class="list_outer content mcustomscrollbox _mCS_1">
+            <div id="mCSB_1" style="position:relative; height:100%; overflow:hidden; max-width:100%;" class="mCustomScrollBox mCS-light">
+              <div style="position:relative; top:0;" class="mCSB_container mCS_no_scrollbar">
+                <div class="menu_single"><a href="/cms/company" target="_self">
+                    <div class="menu_parent">
+                      <div class="menu_icon"><i class="fa fa-id-card-o"></i></div>
+                      <p>公司基本信息</p>
+                    </div></a></div>
+                <div class="menu_single cur"><a href="/cms/contact" target="_self">
+                    <div class="menu_parent">
+                      <div class="menu_icon"><i class="fa fa-fax"></i></div>
+                      <p>公司联系方式</p>
+                    </div></a></div>
+                <div class="menu_single"><a href="/cms/notice" target="_self">
+                    <div class="menu_parent">
+                      <div class="menu_icon"><i class="fa fa-volume-up"></i></div>
+                      <p>通知公告</p>
+                    </div></a></div>
+                <div class="menu_single"><a href="/cms/news" target="_self">
+                    <div class="menu_parent">
+                      <div class="menu_icon"><i class="fa fa-newspaper-o"></i></div>
+                      <p>新闻中心</p>
+                    </div></a></div>
+                <div class="menu_single"><a href="/cms/product" target="_self">
+                    <div class="menu_parent">
+                      <div class="menu_icon"><i class="fa fa-cubes"></i></div>
+                      <p>公司产品管理</p>
+                    </div></a></div>
+                <div class="menu_single"><a href="/cms/category" target="_self">
+                    <div class="menu_parent">
+                      <div class="menu_icon"><i class="fa fa-pie-chart"></i></div>
+                      <p>分类管理</p>
+                    </div></a></div>
+                <div class="menu_single"><a href="/cms/honor" target="_self">
+                    <div class="menu_parent">
+                      <div class="menu_icon"><i class="fa fa-trophy"></i></div>
+                      <p>荣誉证书</p>
+                    </div></a></div>
+                <div class="menu_single"><a href="/cms/photo" target="_self">
+                    <div class="menu_parent">
+                      <div class="menu_icon"><i class="fa fa-photo"></i></div>
+                      <p>公司相册</p>
+                    </div></a></div>
+                <div class="menu_single"><a href="/cms/comment" target="_self">
+                    <div class="menu_parent">
+                      <div class="menu_icon"><i class="fa fa-comment-o"></i></div>
+                      <p>评论留言</p>
+                    </div></a></div>
+                <div class="menu_single"><a href="/cms/website" target="_self">
+                    <div class="menu_parent">
+                      <div class="menu_icon"><i class="fa fa-sitemap"></i></div>
+                      <p>网站信息</p>
+                    </div></a></div>
+              </div>
+              <div style="position: absolute; display: none;" class="mCSB_scrollTools"><a oncontextmenu="return false;" class="mCSB_buttonUp"></a>
+                <div class="mCSB_draggerContainer">
+                  <div style="position: absolute; height: 540px; top: 0px;" oncontextmenu="return false;" class="mCSB_dragger">
+                    <div style="position: relative; line-height: 540px;" class="mCSB_dragger_bar"></div>
+                  </div>
+                  <div class="mCSB_draggerRail"></div>
+                </div><a oncontextmenu="return false;" class="mCSB_buttonDown"></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="content_main">
+          <div id="toast-container" aria-live="polite" role="alert" style="display:none" onclick="hidden_toast()" class="toast-bottom-right">
+            <div class="toast toast-info">
+              <div class="toast-message"></div>
+            </div>
+          </div>
+      <div class="container-fluid">
+        <section class="todo-content">
+          <div class="panel-title pll">网站信息<small>网站信息维护</small></div>
+        </section>
+        <div class="col-md-12">
+          <div class="box box-info">
+            <div class="box-header with-border">
+              <h3 class="box-title">网站信息</h3>
+            </div>
+            <form data-validate="parsley" method="post" action="/cms/website/update" class="form-horizontal">
+              <div class="box-body">
+                <div class="col-sm-8">
+                  <div class="form-group">
+                    <label style="margin-top:40px" class="col-sm-2 control-label">网站LOGO</label>
+                    <div class="col-sm-10">
+                      <input id="hidden_logo" name="logo" type="hidden" value="/public/img/uploads/1484098424032.png"><img id="logo_pic" style="width:100px;height:100px;display:inline;" src="/public/img/uploads/1484098424032.png"><span style="margin-top:74px;" class="btn btn-default btn-xs mll fileinput-button"><i class="fa fa-upload"></i>
+                        <input id="file1" type="file" name="filesdata"></span>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <input id="id" name="id" type="hidden" value="1">
+                    <label for="title" class="col-sm-2 control-label">网站标题</label>
+                    <div class="col-sm-10">
+                      <input id="title" name="title" type="text" placeholder="网站标题" value="石家庄千甫金属制品有限公司" autocomplete="off" data-required="true" class="form-control parsley-validated">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="siteurl" class="col-sm-2 control-label">网站网址</label>
+                    <div class="col-sm-10">
+                      <input id="siteurl" name="siteurl" type="text" placeholder="网站网址" value="/" autocomplete="off" data-required="true" class="form-control parsley-validated">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="keywords" class="col-sm-2 control-label">搜索关键词</label>
+                    <div class="col-sm-10">
+                      <input id="keywords" name="keywords" type="text" placeholder="多个关键词以 &quot;,&quot; 号间隔" value="石家庄千甫金属制品有限公司,锌锭,铝锭,氧化锌,铜锭,铅锭,锌矿粉,锌渣,加工,销售" autocomplete="off" data-required="true" class="form-control parsley-validated">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="description" class="col-sm-2 control-label">网站描述</label>
+                    <div class="col-sm-10">
+                      <textarea id="description" name="description" rows="5" placeholder="网站描述" autocomplete="off" data-required="true" class="textarea form-control parsley-validated">公司主营：锌锭、铝锭加工销售；氧化锌、铜锭、铅锭、锌矿粉、锌渣销售。我公司是河北石家庄金属制品业的知名企业，公司坚持诚信、互利，为客户提供最好的服务和最实惠的价格。热诚欢迎各界朋友前来参观、洽谈业务。
+</textarea>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="support_name" class="col-sm-2 control-label">技术支持</label>
+                    <div class="col-sm-4">
+                      <input id="support_name" name="support_name" type="text" placeholder="技术支持" value="iteming" autocomplete="off" data-required="true" class="form-control parsley-validated">
+                    </div>
+                    <label for="support_url" class="col-sm-2 control-label">技术支持网址</label>
+                    <div class="col-sm-4">
+                      <input id="support_url" name="support_url" type="text" placeholder="技术支持网址" value="http://www.iteming.wang/" autocomplete="off" class="form-control parsley-validated">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="icp_num" class="col-sm-2 control-label">备案号</label>
+                    <div class="col-sm-4">
+                      <input id="icp_num" name="icp_num" type="text" placeholder="公司规模(ex: 1-49人)" value="冀ICP备15016569号" autocomplete="off" class="form-control parsley-validated">
+                    </div>
+                    <label for="views" class="col-sm-2 control-label">浏览次数</label>
+                    <div class="col-sm-4">
+                      <input id="views" name="views" type="text" placeholder="浏览次数" value="14" autocomplete="off" readonly="readonly" class="form-control parsley-validated">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <input id="carousel" name="carousel" type="hidden" value="/public/img/uploads/1484099778509.png|/public/img/uploads/1484107434301.jpg">
+                    <label class="col-sm-2 control-label">轮播图片</label>
+                    <div class="col-sm-10"><span class="btn btn-default fileinput-button"><i class="fa fa-picture-o"></i><span>选择图片</span>
+                        <input id="carouselfile1" type="file" name="filesdata"></span></div>
+                  </div>
+                  <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                      <blockquote class="note note-info">
+                        <h4>注意事项</h4>
+                        <ul>
+                          <!--li 支持多选-->
+                          <li>最大文件大小上传<strong>200MB</strong>.</li>
+                          <li>支持的图片类型有（<strong>JPG, GIF, PNG</strong>）.</li>
+                          <li>轮播图片建议比例（<strong>1110 X 300、900 X 243、370 X 100</strong>像素）.</li>
+                        </ul>
+                      </blockquote>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10"><a type="button" href="/cms/" class="btn btn-default">取消更改</a>
+                      <input id="btn_submit" name="btn_submit" type="button" value="确认更改" class="btn btn-info mll">
+                    </div>
+                  </div>
+                </div>
+                <div ng-app="picturelist" ng-controller="picturelistCtrl" class="col-sm-4">
+                  <div ng-repeat="picture in picturelists" class="form-group">
+                    <div class="col-sm-12 details-picture">
+                      <div class="col-sm-12 text-center">
+                        <label class="mrlgr">{{$index+1}}</label><a ng-click="DeletePicture($index)" class="btn btn-danger btn-xs mllgr"><i class="fa fa-times"></i><span>删除此图片</span></a>
+                      </div><img ng-src="{{picture?picture:&quot;&quot;}}">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="copyright">
+      <p>Copyright © 2014-2016<a href="http://www.iteming.wang/" target="_blank"><span style="margin:10px;">iteming</span></a>All Rights Reserved</p>
+    </div>
+    <div id="loading" class="spinner-div">
+      <div class="spinner">
+        <div class="spinner-container container1">
+          <div class="circle1"></div>
+          <div class="circle2"></div>
+          <div class="circle3"></div>
+          <div class="circle4"></div>
+        </div>
+        <div class="spinner-container container2">
+          <div class="circle1"></div>
+          <div class="circle2"></div>
+          <div class="circle3"></div>
+          <div class="circle4"></div>
+        </div>
+        <div class="spinner-container container3">
+          <div class="circle1"></div>
+          <div class="circle2"></div>
+          <div class="circle3"></div>
+          <div class="circle4"></div>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript" src="/public/js/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="/public/plugins/Flat-UI/js/flat-ui.js"></script>
+    <script type="text/javascript" src="/public/plugins/Flat-UI/js/application.js"></script>
+    <script type="text/javascript" src="/public/plugins/Flat-UI/js/prettify.js"></script>
+    <script type="text/javascript" src="/public/plugins/toastr/toastr.js"></script>
+    <script type="text/javascript" src="/public/plugins/modernizr/modernizr.js"></script>
+    <script type="text/javascript" src="/public/plugins/SmoothScroll/SmoothScroll.js"></script>
+    <script type="text/javascript" src="/public/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+    <script type="text/javascript" src="/public/plugins/parsley/js/parsley.js"></script>
+    <script type="text/javascript" src="/public/plugins/pagination/jquery.pagination.js"></script>
+    <script type="text/javascript" src="/public/js/ie8-respond.js"></script>
+    <script type="text/javascript" src="/public/js/ie8-placeholder.js"></script>
+    <script type="text/javascript" src="/public/js/ie8-extend.js"></script>
+    <script type="text/javascript" src="/public/js/qrcode.js"></script>
+    <script type="text/javascript" src="/public/js/jquery.browser.js"></script>
+    <script type="text/javascript" src="/public/js/launch.js"></script>
+    <script type="text/javascript">
+        $(window).load(function () {
+            Plugins.init();
+
+            var browser = navigator.appName;
+            if (browser == 'Microsoft Internet Explorer') {
+                var appversion = navigator.appVersion;
+                var version = appversion.split(';');
+                var trim_Version = version[1].replace(/[ ]/g, '');
+
+                if (trim_Version == 'MSIE9.0' || trim_Version == 'MSIE8.0') {
+                    // $('input, textarea').placeholder();
+                }
+                if (trim_Version == 'MSIE6.0' || trim_Version == 'MSIE7.0') {
+                    alert('建议在IE8以上或者谷歌、火狐等浏览器浏览，当前IE内核为：' + trim_Version);
+                    return;
+                }
+            }
+        });
+    </script>
+    <script type="text/javascript" src="/public/js/cms/frame.js"></script>
+    <script type="text/javascript" src="/public/js/cms/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script type="text/javascript" src="/public/plugins/jquery-file-upload/js/jquery.fileupload-ajax.js"></script>
+    <script type="text/javascript" src="/public/js/cms/UploadPageJS.js"></script>
+    <script type="text/javascript">
+        //当选中文件,则立即执行上传
+        $(document).on("change", "#file1", function () {
+            if ($("#file1").val() != "") {
+                FileAction.FileUpload("file1", 0, null, $("#logo_pic"), $("#hidden_logo"), null);
+            }
+        });
+    </script>
+    <script type="text/javascript" src="/public/plugins/angular/angular.min.js"></script>
+    <script type="text/javascript">
+        var app = angular.module('picturelist', []);
+        app.controller('picturelistCtrl', function ($scope) {
+            $scope.picturelists = [];
+            $scope.LoadPicture = function () {
+                var carousel = '/public/img/uploads/1484099778509.png|/public/img/uploads/1484107434301.jpg';
+                if (carousel) {
+                    $scope.picturelists = carousel.split("|");
+                }
+            };
+            $scope.DeletePicture = function (index) {
+                $scope.picturelists.splice(index, 1);
+                $scope.$apply();
+            };
+            $scope.LoadPicture();
+            //当选中文件,则立即执行上传
+            $(document).on("change", "#carouselfile1", function () {
+                if ($("#carouselfile1").val() != "") {
+                    if ($scope.picturelists.length >= 5) {
+                        toastrShow(3, '轮播图片最多上传5张');
+                        return;
+                    }
+                    FileAction.FileUpload("carouselfile1", 0, null, null, null, null, null, $scope.picturelists, $scope);
+                }
+            });
+
+            $("#btn_submit").on('click', function () {
+                $("#carousel").val($scope.picturelists.join("|"));
+                //表单验证
+                var valid = $("form").parsley().validate();
+                if (!valid)
+                    return;
+
+                //表单验证通过：则提交
+                $.ajax({
+                    url: "/cms/website/update",
+                    type: "post",
+                    dataType: "json",
+                    data: $("form").serialize(),
+                    success: function (data) {
+                        if (data.status > 0) {
+                            toastrShow(data.status, data.msg);
+                            setTimeout(function () {
+                                window.location = "/cms/website";
+                            }, '1500')
+                        } else {
+                            toastrShow(data.status, data.msg);
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+    @RenderSection("scripts", required: false)
+  </body>
+</html>
