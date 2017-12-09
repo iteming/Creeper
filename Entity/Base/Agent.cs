@@ -6,6 +6,8 @@ namespace Entity.Base
 {
     public class Agent
     {
+        public string Id { get; set; }
+
         [Key, DatabaseGenerated(DatabaseGeneratedOption.None), Column(Order = 1)]
         public int GameId { get; set; }
         public string GameName { get; set; }

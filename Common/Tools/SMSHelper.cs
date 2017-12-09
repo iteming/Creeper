@@ -34,7 +34,7 @@ namespace Common.Tools
         private static string SendSMS2(string tel, string str, string strCode)
         {
             string strRetstring = "";
-            string KEY = "SxJzYSms2@.#%";
+            string KEY = "SXJZYSms2@.#%";
             string sign = MD5Helper.getMd5Hash("gxcx" + tel + strCode + KEY);
             string postStrTpl = "id=gxcx&Sign=" + sign + "&tel={0}&message=";
 
@@ -71,7 +71,7 @@ namespace Common.Tools
                     return strRetstring = "访问失败！";
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 //MYLog.Error("发送短信：" + tel, ex.ToString());
                 return strRetstring = "访问异常！";

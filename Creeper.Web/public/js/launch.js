@@ -122,7 +122,7 @@ var Plugins = function () {
     return {
         init: function () {
             tooltip();
-            checkbox();
+            //checkbox();
             carousel();
             selectbox();
             tags();

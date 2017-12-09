@@ -346,11 +346,7 @@
     <Content Include="public\plugins\font-awesome-4.7.0\css\font-awesome.min.css" />
     <Content Include="public\plugins\font-awesome-4.7.0\fonts\fontawesome-webfont.svg" />
     <Content Include="public\plugins\font-awesome-4.7.0\HELP-US-OUT.txt" />
-    <Content Include="public\plugins\jqGrid\grid.locale-cn.js" />
-    <Content Include="public\plugins\jqGrid\jquery.jqGrid.min.js" />
-    <Content Include="public\plugins\jqGrid\ui.jqgrid-bootstrap-ui.css" />
-    <Content Include="public\plugins\jqGrid\ui.jqgrid-bootstrap.css" />
-    <Content Include="public\plugins\jqGrid\ui.jqgrid.css" />
+    <Content Include="public\plugins\jquery-cookie\jquery.cookie.js" />
     <Content Include="public\plugins\jquery-file-upload\.gitignore" />
     <Content Include="public\plugins\jquery-file-upload\angularjs.html" />
     <Content Include="public\plugins\jquery-file-upload\basic-plus.html" />
@@ -400,6 +396,29 @@
     <Content Include="public\plugins\jquery-file-upload\server\php\files\.gitignore" />
     <Content Include="public\plugins\jquery-file-upload\test\index.html" />
     <Content Include="public\plugins\jquery-file-upload\test\test.js" />
+    <Content Include="public\plugins\jquery-ui-1.12.1\AUTHORS.txt" />
+    <Content Include="public\plugins\jquery-ui-1.12.1\external\jquery\jquery.js" />
+    <Content Include="public\plugins\jquery-ui-1.12.1\images\ui-icons_444444_256x240.png" />
+    <Content Include="public\plugins\jquery-ui-1.12.1\images\ui-icons_555555_256x240.png" />
+    <Content Include="public\plugins\jquery-ui-1.12.1\images\ui-icons_777620_256x240.png" />
+    <Content Include="public\plugins\jquery-ui-1.12.1\images\ui-icons_777777_256x240.png" />
+    <Content Include="public\plugins\jquery-ui-1.12.1\images\ui-icons_cc0000_256x240.png" />
+    <Content Include="public\plugins\jquery-ui-1.12.1\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="public\plugins\jquery-ui-1.12.1\index.html" />
+    <Content Include="public\plugins\jquery-ui-1.12.1\jquery-ui.css" />
+    <Content Include="public\plugins\jquery-ui-1.12.1\jquery-ui.js" />
+    <Content Include="public\plugins\jquery-ui-1.12.1\jquery-ui.min.css" />
+    <Content Include="public\plugins\jquery-ui-1.12.1\jquery-ui.min.js" />
+    <Content Include="public\plugins\jquery-ui-1.12.1\jquery-ui.structure.css" />
+    <Content Include="public\plugins\jquery-ui-1.12.1\jquery-ui.structure.min.css" />
+    <Content Include="public\plugins\jquery-ui-1.12.1\jquery-ui.theme.css" />
+    <Content Include="public\plugins\jquery-ui-1.12.1\jquery-ui.theme.min.css" />
+    <Content Include="public\plugins\jquery-ui-1.12.1\LICENSE.txt" />
+    <Content Include="public\plugins\jquery.jqgrid\css\bootstrap.min.css" />
+    <Content Include="public\plugins\jquery.jqgrid\css\font-awesome.css" />
+    <Content Include="public\plugins\jquery.jqgrid\css\style.min.css" />
+    <Content Include="public\plugins\jquery.jqgrid\css\ui.jqgrid.css" />
+    <Content Include="public\plugins\jquery.jqgrid\js\jquery.jqGrid.js" />
     <Content Include="public\plugins\kindeditor-4.1.11\kindeditor-min.js" />
     <Content Include="public\plugins\kindeditor-4.1.11\kindeditor.js" />
     <Content Include="public\plugins\kindeditor-4.1.11\lang\ar.js" />
@@ -601,6 +620,15 @@
     <Content Include="public\plugins\kindeditor-4.1.11\themes\qq\editor.gif" />
     <Content Include="public\plugins\kindeditor-4.1.11\themes\qq\qq.css" />
     <Content Include="public\plugins\kindeditor-4.1.11\themes\simple\simple.css" />
+    <Content Include="public\plugins\layer-v3.1.1\layer.js" />
+    <Content Include="public\plugins\layer-v3.1.1\mobile\layer.js" />
+    <Content Include="public\plugins\layer-v3.1.1\mobile\need\layer.css" />
+    <Content Include="public\plugins\layer-v3.1.1\theme\default\icon-ext.png" />
+    <Content Include="public\plugins\layer-v3.1.1\theme\default\icon.png" />
+    <Content Include="public\plugins\layer-v3.1.1\theme\default\layer.css" />
+    <Content Include="public\plugins\layer-v3.1.1\theme\default\loading-0.gif" />
+    <Content Include="public\plugins\layer-v3.1.1\theme\default\loading-1.gif" />
+    <Content Include="public\plugins\layer-v3.1.1\theme\default\loading-2.gif" />
     <Content Include="public\plugins\lightbox2\css\lightbox.css" />
     <Content Include="public\plugins\lightbox2\css\lightbox.min.css" />
     <Content Include="public\plugins\lightbox2\images\close.png" />
@@ -715,6 +743,7 @@
     <Content Include="public\plugins\kindeditor-4.1.11\php\upload_json.php" />
     <Content Include="public\plugins\lightbox2\js\lightbox-plus-jquery.min.map" />
     <Content Include="public\plugins\lightbox2\js\lightbox.min.map" />
+    <Content Include="Views\AgentLevel\TextFile1.txt" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -771,7 +800,18 @@
     <Content Include="Views\Shared\_LayoutLogin.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="public\plugins\jqGrid\jqGrid-master.zip" />
+    <Content Include="public\plugins\jquery-ui-1.12.1\package.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="public\plugins\jquery.jqgrid\js\bootstrap.min.js" />
+    <Content Include="public\plugins\jquery.jqgrid\js\content.min.js" />
+    <Content Include="public\plugins\jquery.jqgrid\js\grid.locale-cn.js" />
+    <Content Include="public\plugins\jquery.jqgrid\js\jquery.jqGrid.min.js" />
+    <Content Include="public\plugins\jquery.jqgrid\js\jquery.min.js" />
+    <Content Include="public\plugins\jquery.jqgrid\js\jquery.peity.min.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\AgentLevel\Detail.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -52,7 +52,7 @@ namespace Service
         /// </summary>
         /// <param name="param">查询参数</param>
         /// <returns></returns>
-        public ResultModel<List<Product>> GetProduct(ParamProduct param)
+        public ResultModelPager<List<Product>> GetProduct(ParamProduct param)
         {
             try
             {
@@ -64,16 +64,17 @@ namespace Service
                 if (!string.IsNullOrEmpty(param.GameName))
                     filter = f => f.GameName.Contains(param.GameName);
 
-                var list = filter != null ?
-                            rep.Get(filter).ToList() :
-                            rep.Get().ToList();
+                var list = filter != null ? rep.Get(filter) : rep.Get();
 
-                return ConstClass.Success.SetResult(list);
+                var count = list.Count();
+                var result = list.OrderBy(A => A.GameId)
+                    .Skip((param.PageIndex - 1 ) * param.PageSize).Take(param.PageSize).ToList();
+                return ConstClass.Success.SetResultPager(result, count, param.PageIndex, param.PageSize);
             }
             catch (Exception e)
             {
                 LogHelper.WriteToLog("[异常]:" + e, exLogFile);
-                return ConstClass.Exception.SetResult<List<Product>>(null);
+                return ConstClass.Exception.SetResultPager<List<Product>>(null);
             }
         }
 
@@ -98,15 +99,12 @@ namespace Service
                 if (!string.IsNullOrEmpty(param.AgentLevelName))
                     filter = f => f.AgentLevelName.Contains(param.AgentLevelName);
 
-                var list = filter != null ?
-                            rep.Get(filter).ToList() :
-                            rep.Get().ToList();
+                var list = filter != null ? rep.Get(filter) : rep.Get();
 
-                var count = filter != null ?
-                            rep.Get(filter).Count() :
-                            rep.Get().Count();
-
-                return ConstClass.Success.SetResultPager(list, count, param.PageIndex, param.PageSize);
+                var count = list.Count();
+                var result = list.OrderBy(A=>A.GameId).ThenBy(A=>A.AgentLevelId)
+                    .Skip((param.PageIndex - 1 ) * param.PageSize).Take(param.PageSize).ToList();
+                return ConstClass.Success.SetResultPager(result, count, param.PageIndex, param.PageSize);
             }
             catch (Exception e)
             {
@@ -159,7 +157,7 @@ namespace Service
         /// </summary>
         /// <param name="param">查询参数</param>
         /// <returns></returns>
-        public ResultModel<List<Agent>> GetAgent(ParamUserAgent param)
+        public ResultModelPager<List<Agent>> GetAgent(ParamUserAgent param)
         {
             try
             {
@@ -179,16 +177,17 @@ namespace Service
                 if (param.MyAgentLevel != 0)
                     filter = f => f.MyAgentLevel == param.MyAgentLevel;
 
-                var list = filter != null ?
-                            rep.Get(filter).ToList() :
-                            rep.Get().ToList();
+                var list = filter != null ? rep.Get(filter) : rep.Get();
 
-                return ConstClass.Success.SetResult(list);
+                var count = list.Count();
+                var result = list.OrderBy(A => A.UserId)
+                    .Skip((param.PageIndex - 1 ) * param.PageSize).Take(param.PageSize).ToList();
+                return ConstClass.Success.SetResultPager(result, count, param.PageIndex, param.PageSize);
             }
             catch (Exception e)
             {
                 LogHelper.WriteToLog("[异常]:" + e, exLogFile);
-                return ConstClass.Exception.SetResult<List<Agent>>(null);
+                return ConstClass.Exception.SetResultPager<List<Agent>>(null);
             }
         }
 
@@ -197,7 +196,7 @@ namespace Service
         /// </summary>
         /// <param name="param">查询参数</param>
         /// <returns></returns>
-        public ResultModel<List<User>> GetUser(ParamUserAgent param)
+        public ResultModelPager<List<User>> GetUser(ParamUserAgent param)
         {
             try
             {
@@ -219,16 +218,17 @@ namespace Service
                 if (param.MyAgentLevel != 0)
                     filter = f => f.MyAgentLevel == param.MyAgentLevel;
 
-                var list = filter != null ?
-                            rep.Get(filter).ToList() :
-                            rep.Get().ToList();
+                var list = filter != null ? rep.Get(filter) : rep.Get();
 
-                return ConstClass.Success.SetResult(list);
+                var count = list.Count();
+                var result = list.OrderBy(A => A.UserId)
+                    .Skip((param.PageIndex - 1 ) * param.PageSize).Take(param.PageSize).ToList();
+                return ConstClass.Success.SetResultPager(result, count, param.PageIndex, param.PageSize);
             }
             catch (Exception e)
             {
                 LogHelper.WriteToLog("[异常]:" + e, exLogFile);
-                return ConstClass.Exception.SetResult<List<User>>(null);
+                return ConstClass.Exception.SetResultPager<List<User>>(null);
             }
         }
 
@@ -238,7 +238,7 @@ namespace Service
         /// </summary>
         /// <param name="param">查询参数</param>
         /// <returns></returns>
-        public ResultModel<List<Charge>> GetCharge(ParamUserAgent param)
+        public ResultModelPager<List<Charge>> GetCharge(ParamUserAgent param)
         {
             try
             {
@@ -261,16 +261,17 @@ namespace Service
                     filter = f => f.UserId == Convert.ToInt32(param.OrtherUserKey) ||
                                   f.RealName.Contains(param.OrtherUserKey);
 
-                var list = filter != null ?
-                            rep.Get(filter).ToList() :
-                            rep.Get().ToList();
+                var list = filter != null ? rep.Get(filter) : rep.Get();
 
-                return ConstClass.Success.SetResult(list);
+                var count = list.Count();
+                var result = list.OrderByDescending(A => A.Writedate)
+                    .Skip((param.PageIndex - 1 ) * param.PageSize).Take(param.PageSize).ToList();
+                return ConstClass.Success.SetResultPager(result, count, param.PageIndex, param.PageSize);
             }
             catch (Exception e)
             {
                 LogHelper.WriteToLog("[异常]:" + e, exLogFile);
-                return ConstClass.Exception.SetResult<List<Charge>>(null);
+                return ConstClass.Exception.SetResultPager<List<Charge>>(null);
             }
         }
     }

@@ -156,7 +156,7 @@ namespace Creeper.WindowsService.Comm
                     foreach (var Entity in resultEntity.rows)
                     {
                         #region MyRegion
-                        var dbEntity = rep.Get(A => A.GameId == Entity.GameId).FirstOrDefault();
+                        var dbEntity = rep.Get(A => A.GameId == Entity.GameId && A.AgentLevelId == Entity.AgentLevelId).FirstOrDefault();
                         if (dbEntity == null)
                             listInsert.Add(Entity);
                         else
@@ -165,7 +165,7 @@ namespace Creeper.WindowsService.Comm
                             dbEntity.GameName = Entity.GameName;
                             dbEntity.IsValid = Entity.IsValid;
 
-                            //dbEntity.AgentLevelId = Entity.AgentLevelId;
+                            dbEntity.AgentLevelId = Entity.AgentLevelId;
                             dbEntity.AgentLevelName = Entity.AgentLevelName;
                             dbEntity.DProportion = Entity.DProportion;
                             dbEntity.IProportion = Entity.IProportion;
@@ -175,6 +175,9 @@ namespace Creeper.WindowsService.Comm
                         }
                         #endregion
                     }
+
+                    listInsert.ForEach(a => a.Id = a.GameId + "|" + a.AgentLevelId);
+                    listUpdate.ForEach(a => a.Id = a.GameId + "|" + a.AgentLevelId);
 
                     // 批量新增
                     if (listInsert.Count > 0)
@@ -244,6 +247,9 @@ namespace Creeper.WindowsService.Comm
                         }
                         #endregion
                     }
+
+                    listInsert.ForEach(a => a.Id = a.GameId + "|" + a.UserId);
+                    listUpdate.ForEach(a => a.Id = a.GameId + "|" + a.UserId);
 
                     // 批量新增
                     if (listInsert.Count > 0)
@@ -334,6 +340,9 @@ namespace Creeper.WindowsService.Comm
                         }
                         #endregion
                     }
+
+                    listInsert.ForEach(a => a.Id = a.GameId + "|" + a.UserId);
+                    listUpdate.ForEach(a => a.Id = a.GameId + "|" + a.UserId);
 
                     // 批量新增
                     if (listInsert.Count > 0)

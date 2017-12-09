@@ -5,6 +5,8 @@ namespace Entity.Base
 {
     public class AgentLevel
     {
+        public string Id { get; set; }
+
         [Key, DatabaseGenerated(DatabaseGeneratedOption.None), Column(Order = 1)]
         public int GameId { get; set; }
         public string GameName { get; set; }

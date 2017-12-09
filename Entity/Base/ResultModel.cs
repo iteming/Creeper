@@ -142,12 +142,14 @@ namespace Entity.Base
             if (ResultObj == null)
                 result.Ret = 0;
             else
+            {
                 result.Ret = 1;
+                result.records = Count;
+                result.total = Convert.ToInt32(Count % Size == 0 ? Count / Size : Count / Size + 1);
+                result.page = Page;
+            }
             result.Message = MsgStr;
             result.rows = ResultObj;
-            result.records = Count;
-            result.total = Convert.ToInt32(Count % Size == 0 ? Count / Size : Count / Size + 1);
-            result.page = Page;
             return result;
         }
     }

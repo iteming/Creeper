@@ -822,3 +822,9 @@ table a:hover, .input-group .btn:hover {
     right: -13px;
     border-left-color: #fff
 }
+
+.input-group-btn .btn > .btn-primary, .btn-primary, .btn-primary, .btn-primary, .open .dropdown-toggle.btn-primary {
+    background-color: #18a689 !important;
+    border-color: #18a689 !important;
+    color: #FFF !important;
+}
