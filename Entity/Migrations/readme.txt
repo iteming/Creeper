@@ -9,5 +9,5 @@
 4. //运行Script执行数据库迁移
 	update-database
 
-	Resharper License Server
-	http://xidea.online
+Resharper License Server
+http://xidea.online

@@ -70,33 +70,9 @@
     <Compile Include="Base\ResultModel.cs" />
     <Compile Include="DbHelper.cs" />
     <Compile Include="IRepository.cs" />
-    <Compile Include="Migrations\201712050822273_InitialCreate.cs" />
-    <Compile Include="Migrations\201712050822273_InitialCreate.Designer.cs">
-      <DependentUpon>201712050822273_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201712060440385_2017120612.cs" />
-    <Compile Include="Migrations\201712060440385_2017120612.Designer.cs">
-      <DependentUpon>201712060440385_2017120612.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201712060628516_2017120614.cs" />
-    <Compile Include="Migrations\201712060628516_2017120614.Designer.cs">
-      <DependentUpon>201712060628516_2017120614.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201712061157299_2017120619.cs" />
-    <Compile Include="Migrations\201712061157299_2017120619.Designer.cs">
-      <DependentUpon>201712061157299_2017120619.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201712071009215_2017120718.cs" />
-    <Compile Include="Migrations\201712071009215_2017120718.Designer.cs">
-      <DependentUpon>201712071009215_2017120718.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201712071024062_2017120719.cs" />
-    <Compile Include="Migrations\201712071024062_2017120719.Designer.cs">
-      <DependentUpon>201712071024062_2017120719.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201712071044163_2017120720.cs" />
-    <Compile Include="Migrations\201712071044163_2017120720.Designer.cs">
-      <DependentUpon>201712071044163_2017120720.cs</DependentUpon>
+    <Compile Include="Migrations\201712090631465_20171209.cs" />
+    <Compile Include="Migrations\201712090631465_20171209.Designer.cs">
+      <DependentUpon>201712090631465_20171209.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Param\ParamUserAgent.cs" />
@@ -121,30 +97,12 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201712050822273_InitialCreate.resx">
-      <DependentUpon>201712050822273_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201712060440385_2017120612.resx">
-      <DependentUpon>201712060440385_2017120612.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201712060628516_2017120614.resx">
-      <DependentUpon>201712060628516_2017120614.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201712061157299_2017120619.resx">
-      <DependentUpon>201712061157299_2017120619.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201712071009215_2017120718.resx">
-      <DependentUpon>201712071009215_2017120718.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201712071024062_2017120719.resx">
-      <DependentUpon>201712071024062_2017120719.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201712071044163_2017120720.resx">
-      <DependentUpon>201712071044163_2017120720.cs</DependentUpon>
-    </EmbeddedResource>
+    <Content Include="Migrations\readme.txt" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Migrations\readme.txt" />
+    <EmbeddedResource Include="Migrations\201712090631465_20171209.resx">
+      <DependentUpon>201712090631465_20171209.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
