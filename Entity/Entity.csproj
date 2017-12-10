@@ -78,6 +78,10 @@
     <Compile Include="Migrations\201712091655071_2017121001.Designer.cs">
       <DependentUpon>201712091655071_2017121001.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201712101204054_2017121020.cs" />
+    <Compile Include="Migrations\201712101204054_2017121020.Designer.cs">
+      <DependentUpon>201712101204054_2017121020.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Param\ParamJqGrid.cs" />
     <Compile Include="Param\ParamUserAgent.cs" />
@@ -102,6 +106,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Base\AgentLevels.sql" />
     <Content Include="Migrations\readme.txt" />
   </ItemGroup>
   <ItemGroup>
@@ -110,6 +115,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201712091655071_2017121001.resx">
       <DependentUpon>201712091655071_2017121001.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712101204054_2017121020.resx">
+      <DependentUpon>201712101204054_2017121020.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

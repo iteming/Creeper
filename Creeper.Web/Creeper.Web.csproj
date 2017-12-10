@@ -743,7 +743,6 @@
     <Content Include="public\plugins\kindeditor-4.1.11\php\upload_json.php" />
     <Content Include="public\plugins\lightbox2\js\lightbox-plus-jquery.min.map" />
     <Content Include="public\plugins\lightbox2\js\lightbox.min.map" />
-    <Content Include="Views\AgentLevel\TextFile1.txt" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

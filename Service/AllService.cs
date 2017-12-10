@@ -4,6 +4,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Security.Cryptography;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Common.Tools;
 using Entity;
@@ -14,7 +15,7 @@ namespace Service
 {
     public class AllService
     {
-        private static string exLogFile = "Bissness\\___Exception";
+        private static string exLogFile = "___Exception_Bissness";
         private static DbHelper _db;
 
         public AllService()
@@ -68,7 +69,7 @@ namespace Service
 
                 var count = list.Count();
                 var result = list.OrderBy(A => A.GameId)
-                    .Skip((param.PageIndex - 1 ) * param.PageSize).Take(param.PageSize).ToList();
+                    .Skip((param.PageIndex - 1) * param.PageSize).Take(param.PageSize).ToList();
                 return ConstClass.Success.SetResultPager(result, count, param.PageIndex, param.PageSize);
             }
             catch (Exception e)
@@ -98,12 +99,22 @@ namespace Service
                     filter = f => f.AgentLevelId == param.AgentLevelId;
                 if (!string.IsNullOrEmpty(param.AgentLevelName))
                     filter = f => f.AgentLevelName.Contains(param.AgentLevelName);
+                if (!string.IsNullOrEmpty(param.keywords))
+                {
+                    var gid = 0;
+                    if (Regex.IsMatch(param.keywords, @"^\d+$"))
+                        gid = Convert.ToInt32(param.keywords);
+                    
+                    filter = f => f.GameName.Contains(param.keywords) ||
+                                    f.AgentLevelName.Contains(param.keywords) ||
+                                    f.GameId == gid;
+                }
 
                 var list = filter != null ? rep.Get(filter) : rep.Get();
 
                 var count = list.Count();
-                var result = list.OrderBy(A=>A.GameId).ThenBy(A=>A.AgentLevelId)
-                    .Skip((param.PageIndex - 1 ) * param.PageSize).Take(param.PageSize).ToList();
+                var result = list.OrderBy(A => A.GameId).ThenBy(A => A.AgentLevelId)
+                    .Skip((param.PageIndex - 1) * param.PageSize).Take(param.PageSize).ToList();
                 return ConstClass.Success.SetResultPager(result, count, param.PageIndex, param.PageSize);
             }
             catch (Exception e)
@@ -113,6 +124,39 @@ namespace Service
             }
         }
 
+        public AgentLevel GetAgentLevelByid(string id)
+        {
+            try
+            {
+                var rep = new Repository<AgentLevel>(_db);
+                var entity = rep.Get(A => A.Id == id).FirstOrDefault();
+                return entity ?? new AgentLevel();
+            }
+            catch (Exception e)
+            {
+                LogHelper.WriteToLog("[异常]:" + e, exLogFile);
+                return null;
+            }
+        }
+        public ResultModel DeleteAgentLevel(List<string> ids)
+        {
+            try
+            {
+                var rep = new Repository<AgentLevel>(_db);
+                var list = rep.Get(A => ids.Contains(A.Id)).ToList();
+                if (list.Count > 0)
+                {
+                    rep.Delete(list);
+                    return ConstClass.Success.SetResult("TRUE");
+                }
+                return ConstClass.Failed.SetResult(null);
+            }
+            catch (Exception e)
+            {
+                LogHelper.WriteToLog("[异常]:" + e, exLogFile);
+                return ConstClass.Exception.SetResult(null);
+            }
+        }
         /// <summary>
         /// 更新产品分利层级（新增、修改）
         /// </summary>
@@ -123,10 +167,13 @@ namespace Service
             try
             {
                 var rep = new Repository<AgentLevel>(_db);
-                var dbEntity = rep.Get(A=>A.GameId == entity.GameId && A.AgentLevelId == entity.AgentLevelId).FirstOrDefault();
+                var dbEntity = rep.Get(A => A.GameId == entity.GameId && A.AgentLevelId == entity.AgentLevelId).FirstOrDefault();
 
                 if (dbEntity == null)
+                {
+                    entity.Id = entity.GameId + "|" + entity.AgentLevelId;
                     rep.Insert(entity);
+                }
                 else
                 {
                     // 修改
@@ -139,6 +186,8 @@ namespace Service
                     dbEntity.DProportion = entity.DProportion;
                     dbEntity.IProportion = entity.IProportion;
                     dbEntity.IProportion2 = entity.IProportion2;
+
+                    dbEntity.Id = dbEntity.GameId + "|" + dbEntity.AgentLevelId;
                     rep.Update(dbEntity);
                 }
 
@@ -181,7 +230,7 @@ namespace Service
 
                 var count = list.Count();
                 var result = list.OrderBy(A => A.UserId)
-                    .Skip((param.PageIndex - 1 ) * param.PageSize).Take(param.PageSize).ToList();
+                    .Skip((param.PageIndex - 1) * param.PageSize).Take(param.PageSize).ToList();
                 return ConstClass.Success.SetResultPager(result, count, param.PageIndex, param.PageSize);
             }
             catch (Exception e)
@@ -222,7 +271,7 @@ namespace Service
 
                 var count = list.Count();
                 var result = list.OrderBy(A => A.UserId)
-                    .Skip((param.PageIndex - 1 ) * param.PageSize).Take(param.PageSize).ToList();
+                    .Skip((param.PageIndex - 1) * param.PageSize).Take(param.PageSize).ToList();
                 return ConstClass.Success.SetResultPager(result, count, param.PageIndex, param.PageSize);
             }
             catch (Exception e)
@@ -265,7 +314,7 @@ namespace Service
 
                 var count = list.Count();
                 var result = list.OrderByDescending(A => A.Writedate)
-                    .Skip((param.PageIndex - 1 ) * param.PageSize).Take(param.PageSize).ToList();
+                    .Skip((param.PageIndex - 1) * param.PageSize).Take(param.PageSize).ToList();
                 return ConstClass.Success.SetResultPager(result, count, param.PageIndex, param.PageSize);
             }
             catch (Exception e)

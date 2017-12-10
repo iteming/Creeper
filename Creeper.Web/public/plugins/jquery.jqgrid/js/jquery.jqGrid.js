@@ -7894,7 +7894,7 @@ var XPage = {
                     contentType: "application/json, charset=utf-8",
                     success: function (n) {
                         i.button("reset");
-                        n.flag ? (layer.alert("删除成功"), $("#jqGridList").trigger("reloadGrid")) : layer.alert("删除失败：" + n.msg);
+                        n.Ret === 1 ? (layer.alert("删除成功"), $("#jqGridList").trigger("reloadGrid")) : layer.alert("删除失败：" + n.Message);
                     }
                 })
             },
@@ -7921,7 +7921,7 @@ var XPage = {
             dataType: "JSON",
             success: function (t) {
                     f && $(n).button("reset");
-                    t.flag ? r == null || typeof r == "undefined" ? layer.alert("操作成功") : r.call(this, t) : u == null || typeof u == "undefined" ? layer.alert("操作失败：" + t.msg) : u.call(this, t);
+                    t.Ret === 1 ? r == null || typeof r == "undefined" ? layer.alert("操作成功") : r.call(this, t) : u == null || typeof u == "undefined" ? layer.alert("操作失败：" + t.Message) : u.call(this, t);
                 },
                 complete: function (t, i) {
                     f && $(n).button("reset");

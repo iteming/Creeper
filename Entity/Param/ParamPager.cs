@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Entity.Param
 {
-    public class ParamPager
+    public class ParamPager : ParamJqGrid
     {
         public int PageSize { get; set; }
         public int PageIndex { get; set; }

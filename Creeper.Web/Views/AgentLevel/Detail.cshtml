@@ -1,7 +1,7 @@
-﻿@{
+﻿@model Entity.Base.AgentLevel
+@{
     ViewBag.Title = "分利层级明细";
 }
-
 
 <section class="todo-content">
     <div class="panel-title pll">分利层级管理<small>分利层级信息</small></div>
@@ -13,45 +13,93 @@
             <h3 class="box-title"></h3>
         </div>
         <div class="box-body">
-            <div class="col-md-8">
+            <div class="col-md-10">
 
                 <form data-validate="parsley" method="post" action="/AgentLevel/Update" class="form-horizontal">
                     <div class="form-group">
-                        <input id="id" name="id" type="hidden" value="1">
-                        <label for="title" class="col-sm-2 control-label">网站标题</label>
+                        <label for="GameId" class="col-sm-2 control-label">产品ID</label>
                         <div class="col-sm-10">
-                            <input id="title" name="title" type="text" placeholder="网站标题" value="石家庄千甫金属制品有限公司" autocomplete="off" data-required="true" class="form-control parsley-validated">
+                            <input id="GameId" name="GameId" type="text" placeholder="产品ID"
+                                   value="@(Model.GameId == 0 ? string.Empty : Convert.ToString(Model.GameId))" autocomplete="off" data-required="true"
+                                   class="form-control parsley-validated">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="siteurl" class="col-sm-2 control-label">网站网址</label>
+                        <label for="GameName" class="col-sm-2 control-label">产品名称</label>
                         <div class="col-sm-10">
-                            <input id="siteurl" name="siteurl" type="text" placeholder="网站网址" value="/" autocomplete="off" data-required="true" class="form-control parsley-validated">
+                            <input id="GameName" name="GameName" type="text" placeholder="产品名称" 
+                                   value="@Model.GameName" autocomplete="off" data-required="true" 
+                                   class="form-control parsley-validated">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="keywords" class="col-sm-2 control-label">搜索关键词</label>
+                        <label for="IsValid" class="col-sm-2 control-label">是否有效</label>
                         <div class="col-sm-10">
-                            <input id="keywords" name="keywords" type="text" placeholder="多个关键词以 &quot;,&quot; 号间隔" value="石家庄千甫金属制品有限公司,锌锭,铝锭,氧化锌,铜锭,铅锭,锌矿粉,锌渣,加工,销售" autocomplete="off" data-required="true" class="form-control parsley-validated">
+                            @if (Model.IsValid == "0")
+                            {
+                                <input id="IsValid" name="IsValid" type="checkbox" data-toggle="switch"
+                                       data-on-text="是" data-off-text="否">
+                            }
+                            else
+                            {
+                                <input id="IsValid" name="IsValid" type="checkbox" data-toggle="switch"
+                                       checked data-on-text="是" data-off-text="否">
+                            }
                         </div>
                     </div>
                     <div class="form-group">
+                        <label for="AgentLevelId" class="col-sm-2 control-label">产品级别</label>
+                        <div class="col-sm-4">
+                            <input id="AgentLevelId" name="AgentLevelId" type="text" placeholder="产品级别"
+                                   value="@Model.AgentLevelId" autocomplete="off" data-required="true"
+                                   class="form-control parsley-validated" data-type="number">
+                        </div>
+                        <label for="AgentLevelName" class="col-sm-2 control-label">级别名称</label>
+                        <div class="col-sm-4">
+                            <input id="AgentLevelName" name="AgentLevelName" type="text" placeholder="级别名称"
+                                   value="@Model.AgentLevelName" autocomplete="off" data-required="true"
+                                   class="form-control parsley-validated">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="DProportion" class="col-sm-2 control-label">直接返现比例</label>
+                        <div class="col-sm-10">
+                            <input id="DProportion" name="DProportion" type="text" placeholder="直接返现比例"
+                                   value="@Model.DProportion" autocomplete="off" data-required="true"
+                                   class="form-control parsley-validated" data-type="number">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="IProportion" class="col-sm-2 control-label">下级返现比例</label>
+                        <div class="col-sm-4">
+                            <input id="IProportion" name="IProportion" type="text" placeholder="下级返现比例"
+                                   value="@Model.IProportion" autocomplete="off" data-required="true"
+                                   class="form-control parsley-validated" data-type="number">
+                        </div>
+                        <label for="IProportion2" class="col-sm-2 control-label">下下级返现比例</label>
+                        <div class="col-sm-4">
+                            <input id="IProportion2" name="IProportion2" type="text" placeholder="下下级返现比例"
+                                   value="@Model.IProportion2" autocomplete="off" data-required="true"
+                                   class="form-control parsley-validated" data-type="number">
+                        </div>
+                    </div>
+                    @*<div class="form-group">
                         <div class="col-sm-offset-2 col-sm-10">
                             <blockquote class="note note-info">
                                 <h4>注意事项</h4>
                                 <ul>
-                                    <!--li 支持多选-->
                                     <li>最大文件大小上传<strong>200MB</strong>.</li>
                                     <li>支持的图片类型有（<strong>JPG, GIF, PNG</strong>）.</li>
                                     <li>轮播图片建议比例（<strong>1110 X 300、900 X 243、370 X 100</strong>像素）.</li>
                                 </ul>
                             </blockquote>
                         </div>
-                    </div>
+                    </div>*@
                     <div class="form-group">
                         <div class="col-sm-offset-2 col-sm-10">
-                            <a type="button" href="/cms/" class="btn btn-default">取消更改</a>
-                            <input id="btn_submit" name="btn_submit" type="submit" value="确认更改" class="btn btn-info mll">
+                            <a type="button" href="/AgentLevel/Index" class="btn btn-default">取消更改</a>
+                            <input id="btn_submit" name="btn_submit" type="submit" value="确认更改" 
+                                   class="btn btn-info mll">
                         </div>
                     </div>
                 </form>

@@ -76,18 +76,19 @@
                     {
                         name: 'IsValid', index: 'IsValid', width: 60,
                         formatter: function (cellValue, options, rowObject)
-                            { return cellValue === 0 ? "否" : "是"; }
+                            { return cellValue === "0" ? "否" : "是"; }
                     },
                     {
-                        name: 'operate', index: 'operate', width: 90,
+                        name: 'operate', index: 'operate', hidden: true, width: 90,
                         formatter: function (value, grid, rows, state) {
                             return '<a href="javascript:void(0);" style="color:#3c3c3c;" onclick="modify(\'' + JSON.stringify(rows) + '\');">修改</a>';
                         }
                     }
                 ],
-                height: 310,
+                //height: 180,
                 rowNum: 10,
                 rowList: [10, 20, 30],
+                multiselect: true,
                 // 启用新增修改导航栏
                 add: true,
                 edit: true,

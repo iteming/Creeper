@@ -40,7 +40,7 @@
                                 <td class="text-center"><span ng-bind='$index+1'></span></td>
                                 <td class="text-center"><span ng-bind="item.GameId"></span></td>
                                 <td class="text-center"><span ng-bind="item.GameName"></span></td>
-                                <td class="text-center"><span ng-bind="item.IsValid==0?'否':'是'"></span></td>
+                                <td class="text-center"><span ng-bind="item.IsValid=='0'?'否':'是'"></span></td>
                                 <td class="text-center"><span ng-bind="item.Remark"></span></td>
                             </tr>
                         </tbody>
@@ -90,15 +90,15 @@
                         success: function (data) {
                             if (data.Ret > 0) {
                                 toastrShow(data.Ret, data.Message);
-                                Pager.LoadPage(data.recordCount, index);
-                                $scope.lists = data.Data;
+                                Pager.LoadPage(data.records, index);
+                                $scope.lists = data.rows;
                                 $scope.$apply();
                             }
                         }
                     });
                 },
             };
-            Pager.GetData(0);
+            Pager.GetData(1);
             $scope.Pager = Pager;
             //$('#wd').bind('keypress', function (event) {
             //    if (event.keyCode == '13') Pager.GetData(1);

@@ -11,5 +11,6 @@
         public int page { get; set; }
         public string sidx { get; set; }
         public string sord { get; set; }
+        public string keywords { get; set; }
     }
 }

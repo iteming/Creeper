@@ -10,7 +10,7 @@ namespace Entity.Base
         [Key, DatabaseGenerated(DatabaseGeneratedOption.None), Column(Order = 1)]
         public int GameId { get; set; }
         public string GameName { get; set; }
-        public int IsValid { get; set; } // 是否有效
+        public string IsValid { get; set; } // 是否有效
 
         [Key, DatabaseGenerated(DatabaseGeneratedOption.None), Column(Order = 2)]
         public int AgentLevelId { get; set; }
