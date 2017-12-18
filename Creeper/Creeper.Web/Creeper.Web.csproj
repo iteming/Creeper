@@ -1,0 +1,856 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{55AA37F8-05A6-40B4-8387-66BD19579DA5}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Creeper.Web</RootNamespace>
+    <AssemblyName>Creeper.Web</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.0.0\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.0.0\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.1\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.0.0\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.0.0\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.0.0\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.0.0\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <Private>True</Private>
+      <HintPath>..\packages\Newtonsoft.Json.5.0.6\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.1.0.0\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.1.0.0\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.1.0.0\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Utils\SessionTools.cs" />
+    <Compile Include="Utils\UserAuthorFilter.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AgentController.cs" />
+    <Compile Include="Controllers\AgentLevelController.cs" />
+    <Compile Include="Controllers\ChargeController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="public\img\avatar\avatar-iteming.png" />
+    <Content Include="public\img\avatar\template\b0.jpg" />
+    <Content Include="public\img\avatar\template\b1.jpg" />
+    <Content Include="public\img\avatar\template\b10.jpg" />
+    <Content Include="public\img\avatar\template\b11.jpg" />
+    <Content Include="public\img\avatar\template\b12.jpg" />
+    <Content Include="public\img\avatar\template\b13.jpg" />
+    <Content Include="public\img\avatar\template\b14.jpg" />
+    <Content Include="public\img\avatar\template\b15.jpg" />
+    <Content Include="public\img\avatar\template\b16.jpg" />
+    <Content Include="public\img\avatar\template\b17.jpg" />
+    <Content Include="public\img\avatar\template\b18.jpg" />
+    <Content Include="public\img\avatar\template\b19.jpg" />
+    <Content Include="public\img\avatar\template\b2.jpg" />
+    <Content Include="public\img\avatar\template\b20.jpg" />
+    <Content Include="public\img\avatar\template\b3.jpg" />
+    <Content Include="public\img\avatar\template\b4.jpg" />
+    <Content Include="public\img\avatar\template\b5.jpg" />
+    <Content Include="public\img\avatar\template\b6.jpg" />
+    <Content Include="public\img\avatar\template\b7.jpg" />
+    <Content Include="public\img\avatar\template\b8.jpg" />
+    <Content Include="public\img\avatar\template\b9.jpg" />
+    <Content Include="public\img\avatar\template\bg.jpg" />
+    <Content Include="public\img\avatar\template\c0.jpg" />
+    <Content Include="public\img\avatar\template\c1.jpg" />
+    <Content Include="public\img\avatar\template\c2.jpg" />
+    <Content Include="public\img\avatar\template\c3.jpg" />
+    <Content Include="public\img\avatar\template\c4.jpg" />
+    <Content Include="public\img\avatar\template\c5.jpg" />
+    <Content Include="public\img\avatar\template\c6.jpg" />
+    <Content Include="public\img\avatar\template\c7.jpg" />
+    <Content Include="public\img\avatar\template\c8.jpg" />
+    <Content Include="public\img\avatar\template\c9.jpg" />
+    <Content Include="public\img\avatar\template\user-1.jpg" />
+    <Content Include="public\img\avatar\template\user-10.jpg" />
+    <Content Include="public\img\avatar\template\user-11.jpg" />
+    <Content Include="public\img\avatar\template\user-12.jpg" />
+    <Content Include="public\img\avatar\template\user-13.jpg" />
+    <Content Include="public\img\avatar\template\user-14.jpg" />
+    <Content Include="public\img\avatar\template\user-2.jpg" />
+    <Content Include="public\img\avatar\template\user-3.jpg" />
+    <Content Include="public\img\avatar\template\user-4.jpg" />
+    <Content Include="public\img\avatar\template\user-5.jpg" />
+    <Content Include="public\img\avatar\template\user-6.jpg" />
+    <Content Include="public\img\avatar\template\user-7.jpg" />
+    <Content Include="public\img\avatar\template\user-8.jpg" />
+    <Content Include="public\img\cms\alert_32.png" />
+    <Content Include="public\img\cms\arrow_dwn.png" />
+    <Content Include="public\img\cms\arrow_right_white.png" />
+    <Content Include="public\img\cms\bg.jpg" />
+    <Content Include="public\img\cms\blue_grad.png" />
+    <Content Include="public\img\cms\circle_count.png" />
+    <Content Include="public\img\cms\city_count.png" />
+    <Content Include="public\img\cms\comp_list.png" />
+    <Content Include="public\img\cms\com_basic.png" />
+    <Content Include="public\img\cms\com_material.png" />
+    <Content Include="public\img\cms\dark_blue_grad.png" />
+    <Content Include="public\img\cms\default_usr_photo.png" />
+    <Content Include="public\img\cms\exam_all.png" />
+    <Content Include="public\img\cms\excel_ico.jpg" />
+    <Content Include="public\img\cms\favicon.ico" />
+    <Content Include="public\img\cms\gas_analy.png" />
+    <Content Include="public\img\cms\guide.png" />
+    <Content Include="public\img\cms\header_bg.png" />
+    <Content Include="public\img\cms\header_bg_new.png" />
+    <Content Include="public\img\cms\ico_close.png" />
+    <Content Include="public\img\cms\ico_list.png" />
+    <Content Include="public\img\cms\input_bg.gif" />
+    <Content Include="public\img\cms\ldar_all.png" />
+    <Content Include="public\img\cms\list_icon_01.png" />
+    <Content Include="public\img\cms\list_icon_04.png" />
+    <Content Include="public\img\cms\login_header.png" />
+    <Content Include="public\img\cms\logo.png" />
+    <Content Include="public\img\cms\logo_new.png" />
+    <Content Include="public\img\cms\mCSB_buttons.png" />
+    <Content Include="public\img\cms\menu_20_gray.png" />
+    <Content Include="public\img\cms\menu_btn.png" />
+    <Content Include="public\img\cms\menu_status.png" />
+    <Content Include="public\img\cms\msg_32.png" />
+    <Content Include="public\img\cms\organic_material.png" />
+    <Content Include="public\img\cms\organization.png" />
+    <Content Include="public\img\cms\pro_info.png" />
+    <Content Include="public\img\cms\return.png" />
+    <Content Include="public\img\cms\return_r.png" />
+    <Content Include="public\img\cms\search_gray.png" />
+    <Content Include="public\img\cms\sub_menu_icon.png" />
+    <Content Include="public\img\cms\task_32.png" />
+    <Content Include="public\img\cms\trans_black.png" />
+    <Content Include="public\img\cms\up_report.png" />
+    <Content Include="public\img\cms\usr_center_bg.png" />
+    <Content Include="public\img\cms\usr_name.png" />
+    <Content Include="public\img\cms\usr_pw.png" />
+    <Content Include="public\img\cms\word_ico.jpg" />
+    <Content Include="public\img\login\100_100.png" />
+    <Content Include="public\img\login\16_16.png" />
+    <Content Include="public\img\login\32_32.png" />
+    <Content Include="public\img\login\512_512.png" />
+    <Content Include="public\img\login\64_64.png" />
+    <Content Include="public\img\login\90_90_20k.png" />
+    <Content Include="public\img\uploads\1484098424032.png" />
+    <Content Include="public\img\uploads\1484099778509.png" />
+    <Content Include="public\img\uploads\1484107434301.jpg" />
+    <Content Include="public\img\web\browser-pic-1.jpg" />
+    <Content Include="public\img\web\browser-pic-2.jpg" />
+    <Content Include="public\img\web\browser-pic-3.jpg" />
+    <Content Include="public\img\web\browser-pic-4.jpg" />
+    <Content Include="public\img\web\browser-pic-5.jpg" />
+    <Content Include="public\img\web\browser-pic-6.jpg" />
+    <Content Include="public\img\web\company1.png" />
+    <Content Include="public\img\web\data-img-1.png" />
+    <Content Include="public\img\web\header-bg.png" />
+    <Content Include="public\img\web\home-pic1.png" />
+    <Content Include="public\img\web\home-pic2.png" />
+    <Content Include="public\img\web\home-pic3.png" />
+    <Content Include="public\img\web\logo.png" />
+    <Content Include="public\img\web\qrcode.jpg" />
+    <Content Include="public\img\web\separator.png" />
+    <Content Include="public\js\cms\frame.js" />
+    <Content Include="public\js\cms\jquery.mCustomScrollbar.concat.min.js" />
+    <Content Include="public\js\cms\KindEditorPageJS.js" />
+    <Content Include="public\js\cms\UploadPageJS.js" />
+    <Content Include="public\js\ie8-extend.js" />
+    <Content Include="public\js\ie8-placeholder.js" />
+    <Content Include="public\js\ie8-respond.js" />
+    <Content Include="public\js\jquery-1.9.1.min.js" />
+    <Content Include="public\js\jquery.browser.js" />
+    <Content Include="public\js\launch.js" />
+    <Content Include="public\js\qrcode.js" />
+    <Content Include="public\js\web\addviews.js" />
+    <Content Include="public\js\web\index.js" />
+    <Content Include="public\js\web\sider.js" />
+    <Content Include="public\plugins\angular\angular.min.js" />
+    <Content Include="public\plugins\animations\animate.css" />
+    <Content Include="public\plugins\animations\animations.css" />
+    <Content Include="public\plugins\bootstrap-datepicker\css\bootstrap-datetimepicker.min.css" />
+    <Content Include="public\plugins\bootstrap-datepicker\css\datepicker.css" />
+    <Content Include="public\plugins\bootstrap-datepicker\css\datepicker3.css" />
+    <Content Include="public\plugins\bootstrap-datepicker\js\bootstrap-datepicker.js" />
+    <Content Include="public\plugins\bootstrap-datepicker\js\bootstrap-datetimepicker.min.js" />
+    <Content Include="public\plugins\Custom\custom.js" />
+    <Content Include="public\plugins\Custom\scrollTop.js" />
+    <Content Include="public\plugins\Flat-UI\css\flat-ui.css" />
+    <Content Include="public\plugins\Flat-UI\css\flat-ui.min.css" />
+    <Content Include="public\plugins\Flat-UI\css\vendor\bootstrap\css\bootstrap.min.css" />
+    <Content Include="public\plugins\Flat-UI\css\vendor\bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="public\plugins\Flat-UI\fonts\glyphicons\flat-ui-icons-regular.svg" />
+    <Content Include="public\plugins\Flat-UI\fonts\lato\lato-black.svg" />
+    <Content Include="public\plugins\Flat-UI\fonts\lato\lato-bold.svg" />
+    <Content Include="public\plugins\Flat-UI\fonts\lato\lato-bolditalic.svg" />
+    <Content Include="public\plugins\Flat-UI\fonts\lato\lato-italic.svg" />
+    <Content Include="public\plugins\Flat-UI\fonts\lato\lato-light.svg" />
+    <Content Include="public\plugins\Flat-UI\fonts\lato\lato-regular.svg" />
+    <Content Include="public\plugins\Flat-UI\img\favicon.ico" />
+    <Content Include="public\plugins\Flat-UI\img\icons\png\Book.png" />
+    <Content Include="public\plugins\Flat-UI\img\icons\png\Calendar.png" />
+    <Content Include="public\plugins\Flat-UI\img\icons\png\Chat.png" />
+    <Content Include="public\plugins\Flat-UI\img\icons\png\Clipboard.png" />
+    <Content Include="public\plugins\Flat-UI\img\icons\png\Compas.png" />
+    <Content Include="public\plugins\Flat-UI\img\icons\png\Gift-Box.png" />
+    <Content Include="public\plugins\Flat-UI\img\icons\png\Infinity-Loop.png" />
+    <Content Include="public\plugins\Flat-UI\img\icons\png\Mail.png" />
+    <Content Include="public\plugins\Flat-UI\img\icons\png\Map.png" />
+    <Content Include="public\plugins\Flat-UI\img\icons\png\Pensils.png" />
+    <Content Include="public\plugins\Flat-UI\img\icons\png\Pocket.png" />
+    <Content Include="public\plugins\Flat-UI\img\icons\png\Retina-Ready.png" />
+    <Content Include="public\plugins\Flat-UI\img\icons\png\Toilet-Paper.png" />
+    <Content Include="public\plugins\Flat-UI\img\icons\png\Watches.png" />
+    <Content Include="public\plugins\Flat-UI\img\icons\svg\book.svg" />
+    <Content Include="public\plugins\Flat-UI\img\icons\svg\calendar.svg" />
+    <Content Include="public\plugins\Flat-UI\img\icons\svg\chat.svg" />
+    <Content Include="public\plugins\Flat-UI\img\icons\svg\clipboard.svg" />
+    <Content Include="public\plugins\Flat-UI\img\icons\svg\clocks.svg" />
+    <Content Include="public\plugins\Flat-UI\img\icons\svg\compas.svg" />
+    <Content Include="public\plugins\Flat-UI\img\icons\svg\gift-box.svg" />
+    <Content Include="public\plugins\Flat-UI\img\icons\svg\loop.svg" />
+    <Content Include="public\plugins\Flat-UI\img\icons\svg\mail.svg" />
+    <Content Include="public\plugins\Flat-UI\img\icons\svg\map.svg" />
+    <Content Include="public\plugins\Flat-UI\img\icons\svg\paper-bag.svg" />
+    <Content Include="public\plugins\Flat-UI\img\icons\svg\pencils.svg" />
+    <Content Include="public\plugins\Flat-UI\img\icons\svg\retina.svg" />
+    <Content Include="public\plugins\Flat-UI\img\icons\svg\ribbon.svg" />
+    <Content Include="public\plugins\Flat-UI\img\icons\svg\toilet-paper.svg" />
+    <Content Include="public\plugins\Flat-UI\img\login\icon.png" />
+    <Content Include="public\plugins\Flat-UI\img\login\imac-2x.png" />
+    <Content Include="public\plugins\Flat-UI\img\login\imac.png" />
+    <Content Include="public\plugins\Flat-UI\img\tile\ribbon-2x.png" />
+    <Content Include="public\plugins\Flat-UI\img\tile\ribbon.png" />
+    <Content Include="public\plugins\Flat-UI\index.html" />
+    <Content Include="public\plugins\Flat-UI\js\application.js" />
+    <Content Include="public\plugins\Flat-UI\js\flat-ui.js" />
+    <Content Include="public\plugins\Flat-UI\js\flat-ui.min.js" />
+    <Content Include="public\plugins\Flat-UI\js\jquery.placeholder.min.js" />
+    <Content Include="public\plugins\Flat-UI\js\prettify.js" />
+    <Content Include="public\plugins\Flat-UI\js\vendor\html5shiv.js" />
+    <Content Include="public\plugins\Flat-UI\js\vendor\jquery.min.js" />
+    <Content Include="public\plugins\Flat-UI\js\vendor\respond.min.js" />
+    <Content Include="public\plugins\Flat-UI\js\vendor\video-js.swf" />
+    <Content Include="public\plugins\Flat-UI\js\vendor\video.js" />
+    <Content Include="public\plugins\font-awesome-4.7.0\css\font-awesome.css" />
+    <Content Include="public\plugins\font-awesome-4.7.0\css\font-awesome.min.css" />
+    <Content Include="public\plugins\font-awesome-4.7.0\fonts\fontawesome-webfont.svg" />
+    <Content Include="public\plugins\font-awesome-4.7.0\HELP-US-OUT.txt" />
+    <Content Include="public\plugins\jquery-cookie\jquery.cookie.js" />
+    <Content Include="public\plugins\jquery-file-upload\.gitignore" />
+    <Content Include="public\plugins\jquery-file-upload\angularjs.html" />
+    <Content Include="public\plugins\jquery-file-upload\basic-plus.html" />
+    <Content Include="public\plugins\jquery-file-upload\basic.html" />
+    <Content Include="public\plugins\jquery-file-upload\blueimp-gallery\blueimp-gallery.min.css" />
+    <Content Include="public\plugins\jquery-file-upload\blueimp-gallery\jquery.blueimp-gallery.min.js" />
+    <Content Include="public\plugins\jquery-file-upload\cors\postmessage.html" />
+    <Content Include="public\plugins\jquery-file-upload\cors\result.html" />
+    <Content Include="public\plugins\jquery-file-upload\css\demo-ie8.css" />
+    <Content Include="public\plugins\jquery-file-upload\css\demo.css" />
+    <Content Include="public\plugins\jquery-file-upload\css\jquery.fileupload-noscript.css" />
+    <Content Include="public\plugins\jquery-file-upload\css\jquery.fileupload-ui-noscript.css" />
+    <Content Include="public\plugins\jquery-file-upload\css\jquery.fileupload-ui.css" />
+    <Content Include="public\plugins\jquery-file-upload\css\jquery.fileupload.css" />
+    <Content Include="public\plugins\jquery-file-upload\css\style.css" />
+    <Content Include="public\plugins\jquery-file-upload\Gruntfile.js" />
+    <Content Include="public\plugins\jquery-file-upload\img\loading.gif" />
+    <Content Include="public\plugins\jquery-file-upload\index.html" />
+    <Content Include="public\plugins\jquery-file-upload\jquery-ui.html" />
+    <Content Include="public\plugins\jquery-file-upload\js\app.js" />
+    <Content Include="public\plugins\jquery-file-upload\js\cors\jquery.postmessage-transport.js" />
+    <Content Include="public\plugins\jquery-file-upload\js\cors\jquery.xdr-transport.js" />
+    <Content Include="public\plugins\jquery-file-upload\js\jquery.fileupload-ajax.js" />
+    <Content Include="public\plugins\jquery-file-upload\js\jquery.fileupload-angular.js" />
+    <Content Include="public\plugins\jquery-file-upload\js\jquery.fileupload-audio.js" />
+    <Content Include="public\plugins\jquery-file-upload\js\jquery.fileupload-image.js" />
+    <Content Include="public\plugins\jquery-file-upload\js\jquery.fileupload-jquery-ui.js" />
+    <Content Include="public\plugins\jquery-file-upload\js\jquery.fileupload-process.js" />
+    <Content Include="public\plugins\jquery-file-upload\js\jquery.fileupload-ui.js" />
+    <Content Include="public\plugins\jquery-file-upload\js\jquery.fileupload-validate.js" />
+    <Content Include="public\plugins\jquery-file-upload\js\jquery.fileupload-video.js" />
+    <Content Include="public\plugins\jquery-file-upload\js\jquery.fileupload.js" />
+    <Content Include="public\plugins\jquery-file-upload\js\jquery.iframe-transport.js" />
+    <Content Include="public\plugins\jquery-file-upload\js\main.js" />
+    <Content Include="public\plugins\jquery-file-upload\js\vendor\canvas-to-blob.min.js" />
+    <Content Include="public\plugins\jquery-file-upload\js\vendor\jquery.ui.widget.js" />
+    <Content Include="public\plugins\jquery-file-upload\js\vendor\load-image.min.js" />
+    <Content Include="public\plugins\jquery-file-upload\js\vendor\tmpl.min.js" />
+    <Content Include="public\plugins\jquery-file-upload\server\gae-go\static\favicon.ico" />
+    <Content Include="public\plugins\jquery-file-upload\server\gae-go\static\robots.txt" />
+    <Content Include="public\plugins\jquery-file-upload\server\gae-python\static\favicon.ico" />
+    <Content Include="public\plugins\jquery-file-upload\server\gae-python\static\robots.txt" />
+    <Content Include="public\plugins\jquery-file-upload\server\node\.gitignore" />
+    <Content Include="public\plugins\jquery-file-upload\server\node\public\files\.gitignore" />
+    <Content Include="public\plugins\jquery-file-upload\server\node\server.js" />
+    <Content Include="public\plugins\jquery-file-upload\server\node\tmp\.gitignore" />
+    <Content Include="public\plugins\jquery-file-upload\server\php\files\.gitignore" />
+    <Content Include="public\plugins\jquery-file-upload\test\index.html" />
+    <Content Include="public\plugins\jquery-file-upload\test\test.js" />
+    <Content Include="public\plugins\jquery-ui-1.12.1\AUTHORS.txt" />
+    <Content Include="public\plugins\jquery-ui-1.12.1\external\jquery\jquery.js" />
+    <Content Include="public\plugins\jquery-ui-1.12.1\images\ui-icons_444444_256x240.png" />
+    <Content Include="public\plugins\jquery-ui-1.12.1\images\ui-icons_555555_256x240.png" />
+    <Content Include="public\plugins\jquery-ui-1.12.1\images\ui-icons_777620_256x240.png" />
+    <Content Include="public\plugins\jquery-ui-1.12.1\images\ui-icons_777777_256x240.png" />
+    <Content Include="public\plugins\jquery-ui-1.12.1\images\ui-icons_cc0000_256x240.png" />
+    <Content Include="public\plugins\jquery-ui-1.12.1\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="public\plugins\jquery-ui-1.12.1\index.html" />
+    <Content Include="public\plugins\jquery-ui-1.12.1\jquery-ui.css" />
+    <Content Include="public\plugins\jquery-ui-1.12.1\jquery-ui.js" />
+    <Content Include="public\plugins\jquery-ui-1.12.1\jquery-ui.min.css" />
+    <Content Include="public\plugins\jquery-ui-1.12.1\jquery-ui.min.js" />
+    <Content Include="public\plugins\jquery-ui-1.12.1\jquery-ui.structure.css" />
+    <Content Include="public\plugins\jquery-ui-1.12.1\jquery-ui.structure.min.css" />
+    <Content Include="public\plugins\jquery-ui-1.12.1\jquery-ui.theme.css" />
+    <Content Include="public\plugins\jquery-ui-1.12.1\jquery-ui.theme.min.css" />
+    <Content Include="public\plugins\jquery-ui-1.12.1\LICENSE.txt" />
+    <Content Include="public\plugins\jquery.jqgrid\css\bootstrap.min.css" />
+    <Content Include="public\plugins\jquery.jqgrid\css\font-awesome.css" />
+    <Content Include="public\plugins\jquery.jqgrid\css\style.min.css" />
+    <Content Include="public\plugins\jquery.jqgrid\css\ui.jqgrid.css" />
+    <Content Include="public\plugins\jquery.jqgrid\js\jquery.jqGrid.js" />
+    <Content Include="public\plugins\kindeditor-4.1.11\kindeditor-min.js" />
+    <Content Include="public\plugins\kindeditor-4.1.11\kindeditor.js" />
+    <Content Include="public\plugins\kindeditor-4.1.11\lang\ar.js" />
+    <Content Include="public\plugins\kindeditor-4.1.11\lang\en.js" />
+    <Content Include="public\plugins\kindeditor-4.1.11\lang\ko.js" />
+    <Content Include="public\plugins\kindeditor-4.1.11\lang\ru.js" />
+    <Content Include="public\plugins\kindeditor-4.1.11\lang\zh_CN.js" />
+    <Content Include="public\plugins\kindeditor-4.1.11\lang\zh_TW.js" />
+    <Content Include="public\plugins\kindeditor-4.1.11\license.txt" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\anchor\anchor.js" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\autoheight\autoheight.js" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\baidumap\baidumap.js" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\baidumap\index.html" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\baidumap\map.html" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\clearhtml\clearhtml.js" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\code\code.js" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\code\prettify.css" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\code\prettify.js" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\emoticons\emoticons.js" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\emoticons\images\0.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\emoticons\images\1.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\emoticons\images\10.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\emoticons\images\100.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\emoticons\images\101.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\emoticons\images\102.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\emoticons\images\103.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\emoticons\images\104.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\emoticons\images\105.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\emoticons\images\106.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\emoticons\images\107.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\emoticons\images\108.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\emoticons\images\109.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\emoticons\images\11.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\emoticons\images\110.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\emoticons\images\111.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\emoticons\images\112.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\emoticons\images\113.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\emoticons\images\114.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\emoticons\images\115.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\emoticons\images\116.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\emoticons\images\117.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\emoticons\images\118.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\emoticons\images\119.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\emoticons\images\12.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\emoticons\images\120.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\emoticons\images\121.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\emoticons\images\122.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\emoticons\images\123.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\emoticons\images\124.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\emoticons\images\125.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\emoticons\images\126.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\emoticons\images\127.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\emoticons\images\128.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\emoticons\images\129.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\emoticons\images\13.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\emoticons\images\130.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\emoticons\images\131.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\emoticons\images\132.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\emoticons\images\133.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\emoticons\images\134.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\emoticons\images\14.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\emoticons\images\15.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\emoticons\images\16.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\emoticons\images\17.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\emoticons\images\18.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\emoticons\images\19.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\emoticons\images\2.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\emoticons\images\20.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\emoticons\images\21.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\emoticons\images\22.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\emoticons\images\23.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\emoticons\images\24.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\emoticons\images\25.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\emoticons\images\26.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\emoticons\images\27.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\emoticons\images\28.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\emoticons\images\29.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\emoticons\images\3.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\emoticons\images\30.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\emoticons\images\31.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\emoticons\images\32.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\emoticons\images\33.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\emoticons\images\34.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\emoticons\images\35.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\emoticons\images\36.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\emoticons\images\37.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\emoticons\images\38.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\emoticons\images\39.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\emoticons\images\4.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\emoticons\images\40.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\emoticons\images\41.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\emoticons\images\42.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\emoticons\images\43.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\emoticons\images\44.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\emoticons\images\45.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\emoticons\images\46.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\emoticons\images\47.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\emoticons\images\48.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\emoticons\images\49.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\emoticons\images\5.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\emoticons\images\50.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\emoticons\images\51.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\emoticons\images\52.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\emoticons\images\53.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\emoticons\images\54.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\emoticons\images\55.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\emoticons\images\56.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\emoticons\images\57.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\emoticons\images\58.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\emoticons\images\59.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\emoticons\images\6.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\emoticons\images\60.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\emoticons\images\61.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\emoticons\images\62.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\emoticons\images\63.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\emoticons\images\64.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\emoticons\images\65.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\emoticons\images\66.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\emoticons\images\67.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\emoticons\images\68.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\emoticons\images\69.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\emoticons\images\7.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\emoticons\images\70.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\emoticons\images\71.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\emoticons\images\72.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\emoticons\images\73.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\emoticons\images\74.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\emoticons\images\75.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\emoticons\images\76.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\emoticons\images\77.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\emoticons\images\78.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\emoticons\images\79.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\emoticons\images\8.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\emoticons\images\80.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\emoticons\images\81.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\emoticons\images\82.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\emoticons\images\83.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\emoticons\images\84.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\emoticons\images\85.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\emoticons\images\86.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\emoticons\images\87.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\emoticons\images\88.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\emoticons\images\89.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\emoticons\images\9.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\emoticons\images\90.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\emoticons\images\91.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\emoticons\images\92.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\emoticons\images\93.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\emoticons\images\94.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\emoticons\images\95.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\emoticons\images\96.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\emoticons\images\97.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\emoticons\images\98.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\emoticons\images\99.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\emoticons\images\static.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\filemanager\filemanager.js" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\filemanager\images\file-16.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\filemanager\images\file-64.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\filemanager\images\folder-16.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\filemanager\images\folder-64.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\filemanager\images\go-up.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\fixtoolbar\fixtoolbar.js" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\flash\flash.js" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\image\image.js" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\image\images\align_left.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\image\images\align_right.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\image\images\align_top.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\image\images\refresh.png" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\insertfile\insertfile.js" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\lineheight\lineheight.js" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\link\link.js" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\map\map.html" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\map\map.js" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\media\media.js" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\multiimage\images\image.png" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\multiimage\images\select-files-en.png" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\multiimage\images\select-files-zh-CN.png" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\multiimage\images\swfupload.swf" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\multiimage\multiimage.js" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\pagebreak\pagebreak.js" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\plainpaste\plainpaste.js" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\preview\preview.js" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\quickformat\quickformat.js" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\table\table.js" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\template\html\1.html" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\template\html\2.html" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\template\html\3.html" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\template\template.js" />
+    <Content Include="public\plugins\kindeditor-4.1.11\plugins\wordpaste\wordpaste.js" />
+    <Content Include="public\plugins\kindeditor-4.1.11\themes\common\anchor.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\themes\common\blank.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\themes\common\flash.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\themes\common\loading.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\themes\common\media.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\themes\common\rm.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\themes\default\background.png" />
+    <Content Include="public\plugins\kindeditor-4.1.11\themes\default\default.css" />
+    <Content Include="public\plugins\kindeditor-4.1.11\themes\default\default.png" />
+    <Content Include="public\plugins\kindeditor-4.1.11\themes\qq\editor.gif" />
+    <Content Include="public\plugins\kindeditor-4.1.11\themes\qq\qq.css" />
+    <Content Include="public\plugins\kindeditor-4.1.11\themes\simple\simple.css" />
+    <Content Include="public\plugins\layer-v3.1.1\layer.js" />
+    <Content Include="public\plugins\layer-v3.1.1\mobile\layer.js" />
+    <Content Include="public\plugins\layer-v3.1.1\mobile\need\layer.css" />
+    <Content Include="public\plugins\layer-v3.1.1\theme\default\icon-ext.png" />
+    <Content Include="public\plugins\layer-v3.1.1\theme\default\icon.png" />
+    <Content Include="public\plugins\layer-v3.1.1\theme\default\layer.css" />
+    <Content Include="public\plugins\layer-v3.1.1\theme\default\loading-0.gif" />
+    <Content Include="public\plugins\layer-v3.1.1\theme\default\loading-1.gif" />
+    <Content Include="public\plugins\layer-v3.1.1\theme\default\loading-2.gif" />
+    <Content Include="public\plugins\lightbox2\css\lightbox.css" />
+    <Content Include="public\plugins\lightbox2\css\lightbox.min.css" />
+    <Content Include="public\plugins\lightbox2\images\close.png" />
+    <Content Include="public\plugins\lightbox2\images\loading.gif" />
+    <Content Include="public\plugins\lightbox2\images\next.png" />
+    <Content Include="public\plugins\lightbox2\images\prev.png" />
+    <Content Include="public\plugins\lightbox2\js\lightbox-plus-jquery.js" />
+    <Content Include="public\plugins\lightbox2\js\lightbox-plus-jquery.min.js" />
+    <Content Include="public\plugins\lightbox2\js\lightbox.js" />
+    <Content Include="public\plugins\lightbox2\js\lightbox.min.js" />
+    <Content Include="public\plugins\modernizr\modernizr.js" />
+    <Content Include="public\plugins\pagination\jquery.pagination.js" />
+    <Content Include="public\plugins\pagination\jquery.pagination2.js" />
+    <Content Include="public\plugins\pagination\pagination.css" />
+    <Content Include="public\plugins\parsley\css\parsley.css" />
+    <Content Include="public\plugins\parsley\js\parsley.js" />
+    <Content Include="public\plugins\SmoothScroll\SmoothScroll.js" />
+    <Content Include="public\plugins\toastr\toastr.css" />
+    <Content Include="public\plugins\toastr\toastr.js" />
+    <Content Include="public\plugins\weui\example.css" />
+    <Content Include="public\plugins\weui\example.js" />
+    <Content Include="public\plugins\weui\weui.min.css" />
+    <Content Include="public\plugins\weui\zepto.min.js" />
+    <Content Include="public\styles\cms\adpat.css" />
+    <Content Include="public\styles\cms\box.css" />
+    <Content Include="public\styles\cms\frame.css" />
+    <Content Include="public\styles\cms\jquery.mCustomScrollbar.css" />
+    <Content Include="public\styles\cms\main.css" />
+    <Content Include="public\styles\color-admin-v1.6.css" />
+    <Content Include="public\styles\loading.css" />
+    <Content Include="public\styles\login.css" />
+    <Content Include="public\styles\style.css" />
+    <Content Include="public\styles\webcss.css" />
+    <Content Include="public\plugins\Flat-UI\css\flat-ui.css.map" />
+    <Content Include="public\plugins\Flat-UI\css\vendor\bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="public\plugins\Flat-UI\css\vendor\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="public\plugins\Flat-UI\css\vendor\bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="public\plugins\Flat-UI\css\vendor\bootstrap\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="public\plugins\Flat-UI\fonts\glyphicons\flat-ui-icons-regular.eot" />
+    <Content Include="public\plugins\Flat-UI\fonts\glyphicons\flat-ui-icons-regular.ttf" />
+    <Content Include="public\plugins\Flat-UI\fonts\glyphicons\flat-ui-icons-regular.woff" />
+    <Content Include="public\plugins\Flat-UI\fonts\glyphicons\selection.json" />
+    <Content Include="public\plugins\Flat-UI\fonts\lato\lato-black.eot" />
+    <Content Include="public\plugins\Flat-UI\fonts\lato\lato-black.ttf" />
+    <Content Include="public\plugins\Flat-UI\fonts\lato\lato-black.woff" />
+    <Content Include="public\plugins\Flat-UI\fonts\lato\lato-bold.eot" />
+    <Content Include="public\plugins\Flat-UI\fonts\lato\lato-bold.ttf" />
+    <Content Include="public\plugins\Flat-UI\fonts\lato\lato-bold.woff" />
+    <Content Include="public\plugins\Flat-UI\fonts\lato\lato-bolditalic.eot" />
+    <Content Include="public\plugins\Flat-UI\fonts\lato\lato-bolditalic.ttf" />
+    <Content Include="public\plugins\Flat-UI\fonts\lato\lato-bolditalic.woff" />
+    <Content Include="public\plugins\Flat-UI\fonts\lato\lato-italic.eot" />
+    <Content Include="public\plugins\Flat-UI\fonts\lato\lato-italic.ttf" />
+    <Content Include="public\plugins\Flat-UI\fonts\lato\lato-italic.woff" />
+    <Content Include="public\plugins\Flat-UI\fonts\lato\lato-light.eot" />
+    <Content Include="public\plugins\Flat-UI\fonts\lato\lato-light.ttf" />
+    <Content Include="public\plugins\Flat-UI\fonts\lato\lato-light.woff" />
+    <Content Include="public\plugins\Flat-UI\fonts\lato\lato-regular.eot" />
+    <Content Include="public\plugins\Flat-UI\fonts\lato\lato-regular.ttf" />
+    <Content Include="public\plugins\Flat-UI\fonts\lato\lato-regular.woff" />
+    <Content Include="public\plugins\Flat-UI\js\vendor\jquery.min.map" />
+    <Content Include="public\plugins\font-awesome-4.7.0\fonts\fontawesome-webfont.eot" />
+    <Content Include="public\plugins\font-awesome-4.7.0\fonts\fontawesome-webfont.ttf" />
+    <Content Include="public\plugins\font-awesome-4.7.0\fonts\fontawesome-webfont.woff" />
+    <Content Include="public\plugins\font-awesome-4.7.0\fonts\fontawesome-webfont.woff2" />
+    <Content Include="public\plugins\font-awesome-4.7.0\fonts\FontAwesome.otf" />
+    <Content Include="public\plugins\font-awesome-4.7.0\less\animated.less" />
+    <Content Include="public\plugins\font-awesome-4.7.0\less\bordered-pulled.less" />
+    <Content Include="public\plugins\font-awesome-4.7.0\less\core.less" />
+    <Content Include="public\plugins\font-awesome-4.7.0\less\fixed-width.less" />
+    <Content Include="public\plugins\font-awesome-4.7.0\less\font-awesome.less" />
+    <Content Include="public\plugins\font-awesome-4.7.0\less\icons.less" />
+    <Content Include="public\plugins\font-awesome-4.7.0\less\larger.less" />
+    <Content Include="public\plugins\font-awesome-4.7.0\less\list.less" />
+    <Content Include="public\plugins\font-awesome-4.7.0\less\mixins.less" />
+    <Content Include="public\plugins\font-awesome-4.7.0\less\path.less" />
+    <Content Include="public\plugins\font-awesome-4.7.0\less\rotated-flipped.less" />
+    <Content Include="public\plugins\font-awesome-4.7.0\less\screen-reader.less" />
+    <Content Include="public\plugins\font-awesome-4.7.0\less\stacked.less" />
+    <Content Include="public\plugins\font-awesome-4.7.0\less\variables.less" />
+    <Content Include="public\plugins\font-awesome-4.7.0\scss\font-awesome.scss" />
+    <Content Include="public\plugins\font-awesome-4.7.0\scss\_animated.scss" />
+    <Content Include="public\plugins\font-awesome-4.7.0\scss\_bordered-pulled.scss" />
+    <Content Include="public\plugins\font-awesome-4.7.0\scss\_core.scss" />
+    <Content Include="public\plugins\font-awesome-4.7.0\scss\_fixed-width.scss" />
+    <Content Include="public\plugins\font-awesome-4.7.0\scss\_icons.scss" />
+    <Content Include="public\plugins\font-awesome-4.7.0\scss\_larger.scss" />
+    <Content Include="public\plugins\font-awesome-4.7.0\scss\_list.scss" />
+    <Content Include="public\plugins\font-awesome-4.7.0\scss\_mixins.scss" />
+    <Content Include="public\plugins\font-awesome-4.7.0\scss\_path.scss" />
+    <Content Include="public\plugins\font-awesome-4.7.0\scss\_rotated-flipped.scss" />
+    <Content Include="public\plugins\font-awesome-4.7.0\scss\_screen-reader.scss" />
+    <Content Include="public\plugins\font-awesome-4.7.0\scss\_stacked.scss" />
+    <Content Include="public\plugins\font-awesome-4.7.0\scss\_variables.scss" />
+    <Content Include="public\plugins\jquery-file-upload\.jshintrc" />
+    <Content Include="public\plugins\jquery-file-upload\blueimp-file-upload.jquery.json" />
+    <Content Include="public\plugins\jquery-file-upload\bower.json" />
+    <Content Include="public\plugins\jquery-file-upload\CONTRIBUTING.md" />
+    <Content Include="public\plugins\jquery-file-upload\package.json" />
+    <Content Include="public\plugins\jquery-file-upload\README.md" />
+    <Content Include="public\plugins\jquery-file-upload\server\gae-go\app.yaml" />
+    <Content Include="public\plugins\jquery-file-upload\server\gae-go\app\main.go" />
+    <Content Include="public\plugins\jquery-file-upload\server\gae-python\app.yaml" />
+    <Content Include="public\plugins\jquery-file-upload\server\gae-python\main.py" />
+    <Content Include="public\plugins\jquery-file-upload\server\node\package.json" />
+    <Content Include="public\plugins\jquery-file-upload\server\php\files\.htaccess" />
+    <Content Include="public\plugins\jquery-file-upload\server\php\index.php" />
+    <Content Include="public\plugins\jquery-file-upload\server\php\UploadHandler.php" />
+    <Content Include="public\plugins\kindeditor-4.1.11\php\demo.php" />
+    <Content Include="public\plugins\kindeditor-4.1.11\php\file_manager_json.php" />
+    <Content Include="public\plugins\kindeditor-4.1.11\php\JSON.php" />
+    <Content Include="public\plugins\kindeditor-4.1.11\php\upload_json.php" />
+    <Content Include="public\plugins\lightbox2\js\lightbox-plus-jquery.min.map" />
+    <Content Include="public\plugins\lightbox2\js\lightbox.min.map" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Product\Index.cshtml" />
+    <Content Include="Views\AgentLevel\Index.cshtml" />
+    <Content Include="Views\Agent\Index.cshtml" />
+    <Content Include="Views\User\Index.cshtml" />
+    <Content Include="Views\Rebate\Index.cshtml" />
+    <Content Include="Views\Shared\sider\_LayoutScripts.cshtml" />
+    <Content Include="Views\Shared\sider\_LayoutStyles.cshtml" />
+    <Content Include="Views\Shared\sider\_LayoutToastr.cshtml" />
+    <Content Include="Views\Account\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{94ca5f82-e9c5-4493-80d4-2da493f81a81}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Entity\Entity.csproj">
+      <Project>{bc58b26d-0e62-423b-a92d-2ea0cdddca26}</Project>
+      <Name>Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Service\Service.csproj">
+      <Project>{3a986a9f-4f69-4510-95dd-69c3b7ddd918}</Project>
+      <Name>Service</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\sider\_LayoutHeader.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\sider\_LayoutSiderBar.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\sider\_LayoutFooter.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\_LayoutLogin.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="public\plugins\jquery-ui-1.12.1\package.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="public\plugins\jquery.jqgrid\js\bootstrap.min.js" />
+    <Content Include="public\plugins\jquery.jqgrid\js\content.min.js" />
+    <Content Include="public\plugins\jquery.jqgrid\js\grid.locale-cn.js" />
+    <Content Include="public\plugins\jquery.jqgrid\js\jquery.jqGrid.min.js" />
+    <Content Include="public\plugins\jquery.jqgrid\js\jquery.min.js" />
+    <Content Include="public\plugins\jquery.jqgrid\js\jquery.peity.min.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\AgentLevel\Detail.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\PublishProfiles\CW.pubxml" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>22511</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:22511/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

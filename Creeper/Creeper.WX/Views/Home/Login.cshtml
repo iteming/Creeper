@@ -1,0 +1,229 @@
+﻿@{
+    ViewBag.Title = "代理商登录";
+}
+
+<div class="mui-content">
+    <div class="mui-row ra ra1 mui-text-center">
+        <img src="/public/images/logo.png" /><br /><span>闲雅代理后台</span>
+    </div>
+    <div class="mui-row ra ra2 boxradiusV2">
+        <div class="mui-row rz rz2">
+            <div class="mui-pull-left cz cz1"><div>&nbsp;</div></div>
+            <div class="mui-pull-left cz cz2">选择游戏</div>
+            <div class="mui-pull-left cz cz3 mui-relative">
+                <select id="GameID">
+                    <option value="10032" selected>闲雅大长安麻将</option>
+                    <option value="10013">闲雅兰州麻将</option>
+                    <option value="10017">闲雅户县麻将</option>
+                    <option value="10022">闲雅西游麻将</option>
+                </select>
+                <div class="xia"><div></div></div>
+            </div>
+        </div>
+
+        <div class="mui-row rz rz2 rza3">
+            <div class="mui-pull-left cz cz1"><div>&nbsp;</div></div>
+            <div class="mui-pull-left cz cz2">手机号</div>
+            <div class="mui-pull-left cz cz3"><input type="number" id="Mobile" value="" /></div>
+        </div>
+        <div class="mui-row rz rz2 rza3 mui-relative">
+            <div class="mui-pull-left cz cz1"><div>&nbsp;</div></div>
+            <div class="mui-pull-left cz cz2">验证码</div>
+            <div class="mui-pull-left cz cz3"><input type="number" id="ValideCode" value="" /></div>
+            <div class="cz4 e5btn " onclick="sendsms()">获取验证码</div>
+        </div>
+
+        <div class="mui-row ra ra3 mui-text-center" id="btnsubmit" onclick="submit()"><div>登录</div></div>
+
+    </div>
+</div>
+<div class="mui-row layer1" style="color:#fff;display:none">耐心等待</div>
+
+@section scripts {
+    <script>
+        $(document).ready(function () {
+            var w1 = $(".rza2").width() * 1;
+            var w2 = $(".rza2 span").width() * 1;
+            var w3 = (w1 - w2) / 2 - 31;
+            console.log(w3);
+            sendbtn(1);
+            submitbtn(1);
+            $(".ra2 .yuan ").css("right", w3);
+
+            $("input").focus(function () {
+                $("input").parents(".rza3").removeClass("active");
+                $(this).parents(".rza3").addClass("active");
+            });
+            $("#Mobile").keyup(function () {
+                Mobileinputchange(); return false;
+            });
+            $("#ValideCode").keyup(function () {
+                ValideCodeinputchange(); return false;
+            });
+        });
+
+
+        function Mobileinputchange() {
+            var mobile = $("#Mobile").val();
+            if (mobile) {
+                var ret = /^[1]\d{10}$/;
+                if (!ret.test(mobile)) {
+                    sendbtn(1);
+                    return false;
+                } else {
+                    sendbtn(2);
+                    return false;
+                }
+            }
+            return false;
+        }
+
+        function ValideCodeinputchange() {
+            var valideCode = $("#ValideCode").val();
+            var mobile = $("#Mobile").val();
+            if (!mobile) { mui.alert("请先填写手机号！"); $("#ValideCode").val(""); $("#Mobile").focus(); return false; }
+            if (valideCode) {
+                var ret = /^\d{6}$/;
+                if (!ret.test(valideCode)) {
+                    submitbtn(1);
+                    return false;
+                } else {
+                    submitbtn(2);
+                    return false;
+                }
+            }
+        }
+
+        //短信btn
+        function sendbtn(i) {
+            if (i === 1) {
+                $(".e5btn").addClass("lock");
+                $(".e5btn").attr("onclick", "");
+            } else {
+                $(".e5btn").removeClass("lock");
+                $(".e5btn").attr("onclick", "sendsms()");
+                $(".e5btn").html("发送验证码");
+            }
+        }
+
+        //提交btn
+        function submitbtn(i) {
+            if (i === 1) {
+                $("#btnsubmit").addClass("lock");
+                $("#btnsubmit").attr("onclick", "");
+            } else {
+                $("#btnsubmit").removeClass("lock");
+                $("#btnsubmit").attr("onclick", "submit()");
+            }
+        }
+
+
+        //发送短信
+        function sendsms() {
+            var mobile = $("#Mobile").val();
+            var gameId = $("#GameID").val();
+            if (!mobile) { mui.alert("请输入手机号！"); return false; }
+            $(".e5btn").addClass("lock");
+            $(".e5btn").attr("onclick", "");
+            $.ajax({
+                url: "http://wechat.xynew.qianz.com/Promoter/SendSmsChangeAccountV3",
+                type: "POST",
+                data: {
+                    GameID: gameId,
+                    Mobile: mobile
+                },
+                success: function (data) {
+                    if (!data.Successed) {
+                        mui.alert(data.Message);
+                        $(".e5btn").removeClass("lock");
+                        $(".e5btn").attr("onclick", "sendsms()");
+                        $(".e5btn").html("发送验证码");
+                        $("#mobile").val("");
+                    } else {
+                        djs();
+                    }
+                    return false;
+                },
+                error: function (XMLHttpRequest) {
+                    if (XMLHttpRequest.status !== 499) {
+                        //mui.alert("抱歉，当前网络异常，请退出重试.");
+                        djs();
+                    } else {
+                        mui.alert("登录超时，请退出重试.");
+                    }
+                    return false;
+                }
+            });
+            return false;
+        }
+
+        //倒计时
+        function djs() {
+            //倒计时，进入首页
+            var djsi = 60;
+            $(".e5btn").html("倒计时" + djsi + "秒");
+            $("#Mobile").attr("readonly", "true");
+            var setInterval1 = window.setInterval(function () {
+                console.log("倒计时:" + djsi);
+                $(".e5btn").html("倒计时" + djsi + "秒");
+                if (djsi <= 0) {
+                    window.setTimeout(function () {
+                        //倒计时完成后执行
+                        $(".e5btn").removeClass("lock");
+                        $(".e5btn").attr("onclick", "sendsms()");
+                        $(".e5btn").html("发送验证码");
+                        $("#Mobile").removeAttr("readonly");
+                    }, 100);
+                }
+                if (djsi > 0) {
+                    djsi--;
+                } else {
+                    window.clearInterval(setInterval1);
+                };
+            }, 1000);
+        };
+
+        function submit() {
+            $.showDialog(".layer1");
+
+            var gameId = $("#GameID").find("option:selected").val();
+            var mobile = $("#Mobile").val();
+            var valideCode = $("#ValideCode").val();
+            $.ajax({
+                url: "/Home/AgentInfoLogin",
+                type: "POST",
+                dataType: "json",
+                data: {
+                    GameID: gameId,
+                    Mobile: mobile,
+                    Code: valideCode
+                },
+                success: function (data) {
+                    $.showDialog.hide();
+                    if (!data.Ret) {
+                        mui.alert(data.Message);
+                    } else {
+                        $("#mobile").val("");
+                        $("#ValideCode").val("");
+                        window.location.href = "/Promoter/Main?TreeMenu=1";
+                    }
+                    return false;
+                },
+                error: function (XMLHttpRequest) {
+                    $.showDialog.hide();
+                    if (XMLHttpRequest.status != 499) {
+                        mui.alert("抱歉，当前网络异常，请退出重试.");
+                    } else {
+                        mui.alert("登录超时，请退出重试.");
+                    }
+                    return false;
+                }
+            });
+        }
+    </script>
+}
+
+@section styles{
+    <link href="/public/css/common.css" rel="stylesheet" />
+    <link href="/public/css/Login.css" rel="stylesheet" />
+}

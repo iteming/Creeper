@@ -1,0 +1,124 @@
+﻿@model Entity.Dto.DtoRebateStatistics
+@{
+    ViewBag.Title = "代理商后台管理";
+}
+@if (!(Model != null && Model.user != null && Model.agent != null))
+{
+    return;
+}
+<div class="mui-content">
+    <div class="mui-row rac  rac1">
+        <div class="mui-row ra ra1">
+            <div class="mui-pull-left cz cz1" onclick="ToMycenter()">
+                <img src="/public/images/huanguan.png" />
+            </div>
+            <div class="mui-pull-left cz cz2 mui-bold">
+                <div class='cz2_box' onclick="ToMycenter()">
+                    <span>@(Model.user.MyAgentLevel??0)</span>级代理商
+                    @*<span>@Model.agent.AgentLevelName</span>*@
+                </div>
+            </div>
+            <div class="mui-pull-left cz cz3 mui-bold"></div>
+            <div class="mui-pull-left cz cz4" @*onclick="Rebate()"*@>
+                @*<img src="/public/images/mingxidd.png" />*@
+            </div>
+        </div>
+        <div class="mui-row ra ra2">
+            <div class="mui-row rza rza1 mui-text-center">
+                <span>¥</span> 累计收益
+            </div>
+            <div class="mui-row rza rza2 mui-text-center mui-relative">
+                <span>@(Model.TotalRebateAmount??0)</span> 元
+            </div>
+            <div class="agent3" style="display: block;">
+                <div class="mui-row rza rza3">
+
+                    <div class="mui-pull-left cz cz1">&nbsp;</div>
+                    <div class="mui-pull-left cz cz2">&nbsp;</div>
+                    <div class="mui-pull-left cz cz3">&nbsp;</div>
+                </div>
+                <div class="mui-row rza rza4">
+
+                    <div class="mui-pull-left cz cz1">&nbsp;</div>
+                    <div class="mui-pull-left cz cz1">&nbsp;</div>
+                    <div class="mui-pull-left cz cz1">&nbsp;</div>
+                </div>
+                <div class="mui-row rza rza5">
+                    <div class="mui-pull-left cz cz1">&nbsp;</div><div class="mui-pull-left cz cz2">
+
+                        <div class='cz2_box' onclick="UserList(0)">
+                            &nbsp; &nbsp; &nbsp; 累计用户 <span>@Model.TotalUserCount</span> 人 &nbsp; >
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="mui-row rac  rac2 mui-relative">
+
+        <div class="mui-row rz rz1">
+            <div class="mui-pull-left cz cz1">
+                今日收益 <br /><span>@(Model.TodayRebateAmount??0)</span> 元
+            </div>
+            <div class="mui-pull-left cz cz2">
+                今日新增 <br /><span>@Model.TodayUserCount</span> 人
+            </div>
+        </div>
+        <div class="mui-row rz rz2 ">
+            <div class="mui-pull-left cz cz1">
+                昨日收益 <br /><span>@(Model.YestodayRebateAmount??0)</span> 元
+            </div>
+            <div class="mui-pull-left cz cz2">
+                昨日新增 <br /><span>@Model.YestodayUserCount</span> 人
+            </div>
+        </div>
+        <div class="mui-row rz rz3 ">
+            <div class="mui-pull-left cz cz1">
+                本周收益 <br /><span>@(Model.WeekRebateAmount??0)</span> 元
+            </div>
+            <div class="mui-pull-left cz cz2">
+                本周新增 <br /><span>@Model.WeekUserCount</span> 人
+            </div>
+        </div>
+        <div class="mui-row rz rz4 ">
+            <div class="mui-pull-left cz cz1">
+                本月收益 <br /><span>@(Model.MonthRebateAmount??0)</span> 元
+            </div>
+            <div class="mui-pull-left cz cz2">
+                本月新增 <br /><span>@Model.MonthUserCount</span> 人
+            </div>
+        </div>
+        <div class="mui-row rz rz5 "></div>
+    </div>
+</div>
+
+@section scripts {
+    <script>
+        $(document).ready(function () {
+            var w1 = $(".rza2").width() * 1;
+            var w2 = $(".rza2 span").width() * 1;
+            var w3 = (w1 - w2) / 2 - 31;
+            console.log(w3);
+            $(".ra2 .yuan ").css("right", w3);
+
+            $("#managerbar .cz .rz").removeClass("active");
+            $("#managerbar .cz1 .rz").addClass("active");
+        });
+
+        function Rebate() {
+            window.location.href = "/Promoter/Rebate";
+        }
+        function UserList(i) {
+            window.location.href = "/Promoter/UserList?Code=" + i;
+        }
+        function ToMycenter() {
+            window.location.href = "/Promoter/MyCenter";
+        }
+    </script>
+}
+@section styles{
+    <link href="/public/css/common.css" rel="stylesheet" />
+    <link href="/public/css/Main.css" rel="stylesheet" />
+}
+
+@Html.Partial("~/Views/Shared/_PartialMenu.cshtml")
