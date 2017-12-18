@@ -9,14 +9,15 @@ namespace Creeper.WindowsService
         /// </summary>
         static void Main()
         {
-            //ServiceBase[] ServicesToRun;
-            //ServicesToRun = new ServiceBase[] 
-            //{ 
-            //    new CreeperService() 
-            //};
-            //ServiceBase.Run(ServicesToRun);
+            ServiceBase[] ServicesToRun;
+            ServicesToRun = new ServiceBase[] 
+            { 
+                new CreeperService() 
+            };
+            ServiceBase.Run(ServicesToRun);
 
-            Comm.CreeperCapture.doCapture();
+            //Comm.CreeperCapture.DoCapture();
+            //Comm.CreeperCapture.NextDayRebate();
         }
     }
 }

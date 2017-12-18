@@ -61,4 +61,45 @@ namespace Common.Tools
             HttpContext.Current.Response.Cookies.Add(cookie);
         }
     }
+
+    
+    public class SessionHelper
+    {
+        public static SessionHelper _SessionHelper = new SessionHelper();
+
+        public void SetSession(string key, object value)
+        {
+            HttpContext.Current.Session[key] = value;
+        }
+        public object GetSession(string key)
+        {
+            return HttpContext.Current.Session[key];
+        }
+
+        public string UserID
+        {
+            get
+            {
+                var userid = HttpContext.Current.Session["UserID"];
+                return userid == null ? "" : userid.ToString();
+            }
+            set
+            {
+                HttpContext.Current.Session["UserID"] = value;
+            }
+        }
+
+        public string UserName
+        {
+            get
+            {
+                var username = HttpContext.Current.Session["UserName"];
+                return username == null ? "" : username.ToString();
+            }
+            set
+            {
+                HttpContext.Current.Session["UserName"] = value;
+            }
+        }
+    }
 }

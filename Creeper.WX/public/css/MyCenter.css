@@ -1,0 +1,183 @@
+﻿
+#body {
+    background: #F3F3F3;
+}
+
+.mui-content {
+    padding: 0%;
+    margin-bottom: 30%;
+}
+
+.ra1 {
+    color: #fff;
+    height: 51.5vw;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+    .ra1 .rz1 div {
+        width: 27%;
+        margin: 0 auto;
+        margin-top: 0%; /*background:url(/public/images/touxk.png) no-repeat;background-size:100%;*/
+        height: 32vw;
+        line-height: 30vw;
+        border: 0px solid #ccc;
+    }
+
+    .ra1 .rz1 img {
+        width: 100%;
+        border-radius: 50%;
+        margin: auto;
+        margin-top: 14%;
+        padding: 5px;
+        border: 1.3px solid #6d99db;
+        background: #fff;
+    }
+
+.ra1 {
+    margin-bottom: 0%;
+}
+
+    .ra1 .rz1 {
+        margin-bottom: 0%;
+    }
+
+    .ra1 .rz2 {
+        font-size: 4.5vw;
+        margin-bottom: 1%;
+        color: #6d99db;
+    }
+
+    .ra1 .rz3 {
+        width: 27%;
+        margin: 0 auto;
+        font-size: 3.5vw;
+        margin-top: 2%;
+    }
+
+        .ra1 .rz3 .box {
+            background: #6d99db;
+            border-radius: 5px;
+            height: 7vw;
+            line-height: 7vw;
+        }
+
+        .ra1 .rz3 .cz1 {
+            width: 16%;
+            margin: 2% 0% 0% 8.5%;
+        }
+
+        .ra1 .rz3 .cz2 {
+            text-align: left;
+            margin-left: 3%;
+        }
+
+    .ra1 .rz4 {
+        background: #fff;
+        width: 96%;
+        border-radius: 8px;
+        margin: 0 auto;
+        color: #A6A6A6;
+        height: 25.5vw;
+        padding: 3%;
+        margin-top: 3%;
+    }
+
+        .ra1 .rz4 .cz {
+            width: 50%;
+            background: #fff;
+            text-align: center;
+        }
+
+        .ra1 .rz4 .cz1 {
+            border-right: 1px solid #ccc;
+        }
+
+        .ra1 .rz4 .rza {
+            height: 10vw;
+            line-height: 10vw;
+        }
+
+        .ra1 .rz4 .rza1 {
+            font-size: 5vw;
+            padding-left: 22%;
+        }
+
+        .ra1 .rz4 .rza2 {
+            font-size: 5vw;
+            color: #595959;
+        }
+
+        .ra1 .rz4 .cz1 .rza1 {
+            background: url(/public/images/erweima.png) no-repeat 29% 60%;
+            background-size: 12%;
+        }
+
+        .ra1 .rz4 .cz2 .rza1 {
+            background: url(/public/images/zuanshi.png) no-repeat 26% 60%;
+            background-size: 14.5%;
+        }
+
+.ra2.boxradiusV2 {
+    margin: 16% 3% 3% 3%;
+    padding: 31% 3% 3% 3%;
+}
+
+.ra2 .rz {
+    border-bottom: 1px solid #E5E5E5;
+    margin: 0% 4%;
+}
+
+    .ra2 .rz .cz {
+        text-align: center;
+        font-size: 3.8vw;
+        height: 14.0vw;
+    }
+
+    .ra2 .rz .cz1 {
+        width: 40%;
+        color: #A6A6A6;
+        line-height: 14vw;
+    }
+
+    .ra2 .rz .cz2 {
+        width: 60%;
+        color: #565656;
+        line-height: 14vw;
+        padding: 0%;
+        text-align: left;
+    }
+
+        .ra2 .rz .cz2.active {
+            line-height: 10vw;
+        }
+        
+    .ra2 .rz6 .cz2 {
+        width: 40% !important;
+        color: #565656;
+        line-height: 14vw;
+        padding: 0%;
+        text-align: left;
+    }
+
+    .ra2 .rz .cz3 {
+        width: 20%;
+        color: #FFF;
+        padding: 0%;
+        text-align: left;
+        border: 1px #6d99db solid;
+        background: #6d99db;
+        border-radius: 5px;
+        line-height: 7vw;
+        height: 7vw;
+        margin: auto;
+        margin-top: 4vw;
+    }
+
+    .ra2 .box {
+        background: #6d99db;
+        border-radius: 5px;
+        height: 7vw;
+        line-height: 7vw;
+    }

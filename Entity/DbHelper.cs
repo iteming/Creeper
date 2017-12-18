@@ -13,6 +13,7 @@ namespace Entity
         public DbSet<Agent> Agent { get; set; }
         public DbSet<User> User { get; set; }
         public DbSet<Charge> Charge { get; set; }
+        public DbSet<Rebate> Rebate { get; set; }
         public DbSet<AgentApply> AgentApply { get; set; }
     }
 }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using Creeper.Web.Comm;
+using Creeper.Web.Utils;
 using Service;
 using Entity.Param;
 using Common.Tools;
@@ -11,10 +11,10 @@ using Common.Tools;
 namespace Creeper.Web.Controllers
 {
     [UserAuthorFilter]
-    public class ChargeController : Controller
+    public class RebateController : Controller
     {
         //
-        // GET: /Charge/
+        // GET: /Rebate/
         public ActionResult Index()
         {
             return View();
@@ -23,7 +23,7 @@ namespace Creeper.Web.Controllers
         [HttpPost]
         public ActionResult List(int PageSize, int PageIndex)
         {
-            var result = new AllService().GetCharge(new ParamUserAgent
+            var result = new AllService().GetRebate(new ParamUserAgent
             {
                 PageIndex = PageIndex,
                 PageSize = PageSize

@@ -36,15 +36,21 @@ namespace Entity.Base
         public Nullable<int> AgentLevel3 { get; set; }
 
 
-        //public Nullable<decimal> TotalCharge { get; set; } //总充值
-        //public Nullable<decimal> TodayCharge { get; set; } //今日充值
-        //public Nullable<decimal> TotalRound { get; set; } //总局数
-        //public Nullable<decimal> TodayRound { get; set; } //今日局数
-        //public Nullable<decimal> TotalWinRound { get; set; } //总赢得局数
-        //public Nullable<decimal> TodayWinRound { get; set; } //今日赢得局数
-        //public Nullable<decimal> Diamond { get; set; } // 钻石剩余量
+        public Nullable<decimal> TotalCharge { get; set; } //总充值
+        public Nullable<decimal> TodayCharge { get; set; } //今日充值
+        public Nullable<decimal> TotalRound { get; set; } //总局数
+        public Nullable<decimal> TodayRound { get; set; } //今日局数
+        public Nullable<decimal> TotalWinRound { get; set; } //总赢得局数
+        public Nullable<decimal> TodayWinRound { get; set; } //今日赢得局数
+        public Nullable<decimal> Diamond { get; set; } // 开房消耗钻石
+
         //public Nullable<decimal> Coin { get; set; } // 金币剩余量
         //public string GameVersion { get; set; } // 游戏版本 - "1.0.0"
+
+        public string OpenId { get; set; } // 闲雅麻将 openid
+        public string UnionId { get; set; } // Unionid
+        public string Wx_Openid { get; set; } // 佳之易 openid
+        public string HeaderUrl { get; set; } // 头像路径
 
         /// <summary>
         /// 是否是本平台 已维护的用户

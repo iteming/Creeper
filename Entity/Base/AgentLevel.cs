@@ -18,5 +18,6 @@ namespace Entity.Base
         public decimal DProportion { get; set; } //比例
         public decimal IProportion { get; set; } //比例
         public decimal IProportion2 { get; set; } //比例
+        public decimal IProportion3 { get; set; } //比例
     }
 }

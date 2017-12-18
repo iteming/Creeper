@@ -97,7 +97,7 @@ namespace Common
             };
 
             var data = ToolsHelper._HttpHelper.SendAsyncHttp(ref mc);
-            LogHelper.WriteToLog("GetAllProduct[所有产品]:" + data, strFileName);
+            //LogHelper.WriteToLog("GetAllProduct[所有产品]:" + data, strFileName);
             return data;
         }
 
@@ -129,7 +129,7 @@ namespace Common
             };
 
             var data = ToolsHelper._HttpHelper.SendAsyncHttp(ref mc);
-            LogHelper.WriteToLog("GetAllAgentLevel[所有产品 代理层级]:" + data, strFileName);
+            //LogHelper.WriteToLog("GetAllAgentLevel[所有产品 代理层级]:" + data, strFileName);
             return data;
         }
 
@@ -141,7 +141,7 @@ namespace Common
         /// <param name="gid"></param>
         public string GetAllAgent(ref MyClass mc, int gid = 0)
         {
-            _pageSize = 1000;
+            _pageSize = 2000;
             _sortIndex = "CreateTime";
             string domain = "http://platform.xy.qianz.com/DataCenter/SysData.aspx?method=GetAllAgent";
             domain += string.Format("&gid={0}&guid=&agentstatus=-1", gid);
@@ -164,7 +164,7 @@ namespace Common
             };
 
             var data = ToolsHelper._HttpHelper.SendAsyncHttp(ref mc);
-            LogHelper.WriteToLog("GetAllAgent[代理管理]:" + data, strFileName);
+            //LogHelper.WriteToLog("GetAllAgent[代理管理]:" + data, strFileName);
             return data;
         }
 
@@ -175,7 +175,7 @@ namespace Common
         /// <param name="gid"></param>
         public string GetAllUser(ref MyClass mc, int gid = 0)
         {
-            _pageSize = 20000;
+            _pageSize = 50000;
             _sortIndex = "UserId";
             string domain = "http://platform.xy.qianz.com/DataCenter/StatisticalData.aspx?method=EachProductUserDistributionDetail";
             domain += string.Format("&gid={0}&gameuid=", gid);
@@ -199,13 +199,13 @@ namespace Common
             };
 
             var data = ToolsHelper._HttpHelper.SendAsyncHttp(ref mc);
-            if (data.Length < 2000)
-                LogHelper.WriteToLog("GetAllUser[用户管理]:" + data, strFileName);
+            //if (data.Length < 2000)
+            //    LogHelper.WriteToLog("GetAllUser[用户管理]:" + data, strFileName);
             return data;
         }
 
         /// <summary>
-        /// 即使返利明细
+        /// 即时返利明细
         /// </summary>
         /// <param name="mc"></param>
         /// <param name="gid"></param>
@@ -213,7 +213,7 @@ namespace Common
         /// <param name="eTime"></param>
         public string InstantRebatesAnalysis(ref MyClass mc, int gid = 0, string sTime = "", string eTime = "")
         {
-            _pageSize = 5000;
+            _pageSize = 10000;
             _sortIndex = "Writedate";
             string domain = "http://platform.xy.qianz.com/DataCenter/StatisticalData.aspx?method=InstantRebatesAnalysis";
             domain += string.Format("&gid={0}&guid=&uid=&status=1&begintime={1}&endtime={2}", gid, sTime, eTime);
@@ -236,7 +236,37 @@ namespace Common
             };
 
             var data = ToolsHelper._HttpHelper.SendAsyncHttp(ref mc);
-            LogHelper.WriteToLog("InstantRebatesAnalysis[即使返利明细]:" + data, strFileName);
+            //LogHelper.WriteToLog("InstantRebatesAnalysis[即时返利明细]:" + data, strFileName);
+            return data;
+        }
+
+
+        public string InstantChargeAnalysis(ref MyClass mc, int gid = 0, string sTime = "", string eTime = "")
+        {
+            _pageSize = 10000;
+            _sortIndex = "ChargeTime";
+            string domain = "http://platform.xy.qianz.com/DataCenter/StatisticalData.aspx?method=EachProductFlowStatisticsDetail";
+            domain += string.Format("&gid={0}&guser=&uid=&status=1&begintime={1}&endtime={2}", gid, sTime, eTime);
+            var url = string.Format(@"{0}&_search=false&nd={1}&rows={2}&page=1&sidx={3}&sord=asc", domain, DateTime.Now.ToString("yyyyMMddHHmmssfff"), _pageSize, _sortIndex);
+
+            mc = new MyClass
+            {
+                Url = url,
+                Method = "GET",
+                Accept = "application/json, text/javascript, */*",
+                ContentType = "application/x-www-form-urlencoded",
+                KeepAlive = true,
+                CookieContainer = mc.CookieContainer ?? new CookieContainer(),
+                Headers = new WebHeaderCollection
+                {
+                    {"Accept-Language", "zh-cn,zh"},
+                    {"Accept-Encoding", "gzip,deflate"},
+                },
+                Postdata = "",
+            };
+
+            var data = ToolsHelper._HttpHelper.SendAsyncHttp(ref mc);
+            //LogHelper.WriteToLog("InstantRebatesAnalysis[充值流水一览]:" + data, strFileName);
             return data;
         }
 
@@ -271,7 +301,7 @@ namespace Common
             };
 
             var data = ToolsHelper._HttpHelper.SendAsyncHttp(ref mc);
-            LogHelper.WriteToLog("GetAgentApply[代理商申请]:" + data, strFileName);
+            //LogHelper.WriteToLog("GetAgentApply[代理商申请]:" + data, strFileName);
             return data;
         }
 
@@ -285,7 +315,7 @@ namespace Common
         /// <param name="aglid"></param>
         public string EachProductAgentCountDistributionDetail(ref MyClass mc, int gid = 10013, int aglid = 1)
         {
-            //_pageSize = 500;
+            _pageSize = 500;
             _sortIndex = "UserId";
             string domain = "http://platform.xy.qianz.com/DataCenter/StatisticalData.aspx?method=EachProductAgentCountDistributionDetail";
             domain += string.Format("&gid={0}&aglid={1}&key=&puid=0&begintime=&endtime=", gid, aglid);
@@ -308,7 +338,7 @@ namespace Common
             };
 
             var data = ToolsHelper._HttpHelper.SendAsyncHttp(ref mc);
-            LogHelper.WriteToLog("EachProductAgentCountDistributionDetail[代理一览 详情]:" + data, strFileName);
+            //LogHelper.WriteToLog("EachProductAgentCountDistributionDetail[代理一览 详情]:" + data, strFileName);
             return data;
         }
         /// <summary>
@@ -316,7 +346,7 @@ namespace Common
         /// </summary>
         public string EachProductUserDistributionDetail(ref MyClass mc, int gid = 10013)
         {
-            //_pageSize = 500;
+            _pageSize = 500;
             _sortIndex = "RegisterTime";
             string domain = "http://platform.xy.qianz.com/DataCenter/StatisticalData.aspx?method=EachProductUserDistributionDetail";
             domain += string.Format("&gid={0}&agentuid=0", gid);
@@ -339,7 +369,7 @@ namespace Common
             };
 
             var data = ToolsHelper._HttpHelper.SendAsyncHttp(ref mc);
-            LogHelper.WriteToLog("EachProductUserDistributionDetail[用户一览详情]:" + data, strFileName);
+            //LogHelper.WriteToLog("EachProductUserDistributionDetail[用户一览详情]:" + data, strFileName);
             return data;
         }
         /// <summary>
@@ -372,7 +402,7 @@ namespace Common
             };
 
             var data = ToolsHelper._HttpHelper.SendAsyncHttp(ref mc);
-            LogHelper.WriteToLog("DayRebatesAnalysis[日结返利明细]:" + data, strFileName);
+            //LogHelper.WriteToLog("DayRebatesAnalysis[日结返利明细]:" + data, strFileName);
             return data;
         }
     }

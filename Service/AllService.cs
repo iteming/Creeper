@@ -2,10 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Security.Cryptography;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using Common.Tools;
 using Entity;
 using Entity.Base;
@@ -34,7 +31,7 @@ namespace Service
             {
                 var rep = new Repository<Admin>(_db);
 
-                var dbEntity = rep.Get(A => A.UserName == param.UserName).FirstOrDefault();
+                var dbEntity = rep.Get(a => a.UserName == param.UserName).FirstOrDefault();
                 if (dbEntity != null && dbEntity.Password == MD5Helper.ToMd5Bit32(param.Password))
                     return ConstClass.Success.SetResult(dbEntity);
 
@@ -58,17 +55,15 @@ namespace Service
             try
             {
                 var rep = new Repository<Product>(_db);
+                var queryable = rep.Get();
 
-                Expression<Func<Product, bool>> filter = null;
                 if (param.GameId != 0)
-                    filter = f => f.GameId == param.GameId;
+                    queryable = queryable.Where(f => f.GameId == param.GameId);
                 if (!string.IsNullOrEmpty(param.GameName))
-                    filter = f => f.GameName.Contains(param.GameName);
+                    queryable = queryable.Where(f => f.GameName.Contains(param.GameName));
 
-                var list = filter != null ? rep.Get(filter) : rep.Get();
-
-                var count = list.Count();
-                var result = list.OrderBy(A => A.GameId)
+                var count = queryable.Count();
+                var result = queryable.OrderBy(o => o.GameId)
                     .Skip((param.PageIndex - 1) * param.PageSize).Take(param.PageSize).ToList();
                 return ConstClass.Success.SetResultPager(result, count, param.PageIndex, param.PageSize);
             }
@@ -89,31 +84,29 @@ namespace Service
             try
             {
                 var rep = new Repository<AgentLevel>(_db);
+                var queryable = rep.Get();
 
-                Expression<Func<AgentLevel, bool>> filter = null;
                 if (param.GameId != 0)
-                    filter = f => f.GameId == param.GameId;
+                    queryable = queryable.Where(f => f.GameId == param.GameId);
                 if (!string.IsNullOrEmpty(param.GameName))
-                    filter = f => f.GameName.Contains(param.GameName);
+                    queryable = queryable.Where(f => f.GameName.Contains(param.GameName));
                 if (param.AgentLevelId != 0)
-                    filter = f => f.AgentLevelId == param.AgentLevelId;
+                    queryable = queryable.Where(f => f.AgentLevelId == param.AgentLevelId);
                 if (!string.IsNullOrEmpty(param.AgentLevelName))
-                    filter = f => f.AgentLevelName.Contains(param.AgentLevelName);
+                    queryable = queryable.Where(f => f.AgentLevelName.Contains(param.AgentLevelName));
                 if (!string.IsNullOrEmpty(param.keywords))
                 {
                     var gid = 0;
                     if (Regex.IsMatch(param.keywords, @"^\d+$"))
                         gid = Convert.ToInt32(param.keywords);
                     
-                    filter = f => f.GameName.Contains(param.keywords) ||
+                    queryable = queryable.Where(f => f.GameName.Contains(param.keywords) ||
                                     f.AgentLevelName.Contains(param.keywords) ||
-                                    f.GameId == gid;
+                                    f.GameId == gid);
                 }
-
-                var list = filter != null ? rep.Get(filter) : rep.Get();
-
-                var count = list.Count();
-                var result = list.OrderBy(A => A.GameId).ThenBy(A => A.AgentLevelId)
+                
+                var count = queryable.Count();
+                var result = queryable.OrderBy(a => a.GameId).ThenBy(a => a.AgentLevelId)
                     .Skip((param.PageIndex - 1) * param.PageSize).Take(param.PageSize).ToList();
                 return ConstClass.Success.SetResultPager(result, count, param.PageIndex, param.PageSize);
             }
@@ -129,7 +122,7 @@ namespace Service
             try
             {
                 var rep = new Repository<AgentLevel>(_db);
-                var entity = rep.Get(A => A.Id == id).FirstOrDefault();
+                var entity = rep.Get(a => a.Id == id).FirstOrDefault();
                 return entity ?? new AgentLevel();
             }
             catch (Exception e)
@@ -143,7 +136,7 @@ namespace Service
             try
             {
                 var rep = new Repository<AgentLevel>(_db);
-                var list = rep.Get(A => ids.Contains(A.Id)).ToList();
+                var list = rep.Get(a => ids.Contains(a.Id)).ToList();
                 if (list.Count > 0)
                 {
                     rep.Delete(list);
@@ -167,7 +160,7 @@ namespace Service
             try
             {
                 var rep = new Repository<AgentLevel>(_db);
-                var dbEntity = rep.Get(A => A.GameId == entity.GameId && A.AgentLevelId == entity.AgentLevelId).FirstOrDefault();
+                var dbEntity = rep.Get(a => a.GameId == entity.GameId && a.AgentLevelId == entity.AgentLevelId).FirstOrDefault();
 
                 if (dbEntity == null)
                 {
@@ -186,6 +179,7 @@ namespace Service
                     dbEntity.DProportion = entity.DProportion;
                     dbEntity.IProportion = entity.IProportion;
                     dbEntity.IProportion2 = entity.IProportion2;
+                    dbEntity.IProportion3 = entity.IProportion3;
 
                     dbEntity.Id = dbEntity.GameId + "|" + dbEntity.AgentLevelId;
                     rep.Update(dbEntity);
@@ -211,25 +205,23 @@ namespace Service
             try
             {
                 var rep = new Repository<Agent>(_db);
+                var queryable = rep.Get();
 
-                Expression<Func<Agent, bool>> filter = null;
                 if (param.GameId != 0)
-                    filter = f => f.GameId == param.GameId;
+                    queryable = queryable.Where(f => f.GameId == param.GameId);
                 if (!string.IsNullOrEmpty(param.GameName))
-                    filter = f => f.GameName.Contains(param.GameName);
+                    queryable = queryable.Where(f => f.GameName.Contains(param.GameName));
 
                 if (!string.IsNullOrEmpty(param.UserKey))
-                    filter = f => f.UserId == Convert.ToInt32(param.UserKey) ||
+                    queryable = queryable.Where(f => f.UserId == Convert.ToInt32(param.UserKey) ||
                                   f.RealName.Contains(param.UserKey) ||
                                   f.NickName.Contains(param.UserKey) ||
-                                  f.PhoneNo.Contains(param.UserKey);
+                                  f.PhoneNo.Contains(param.UserKey));
                 if (param.MyAgentLevel != 0)
-                    filter = f => f.MyAgentLevel == param.MyAgentLevel;
-
-                var list = filter != null ? rep.Get(filter) : rep.Get();
-
-                var count = list.Count();
-                var result = list.OrderBy(A => A.UserId)
+                    queryable = queryable.Where(f => f.MyAgentLevel == param.MyAgentLevel);
+                
+                var count = queryable.Count();
+                var result = queryable.OrderBy(o => o.UserId)
                     .Skip((param.PageIndex - 1) * param.PageSize).Take(param.PageSize).ToList();
                 return ConstClass.Success.SetResultPager(result, count, param.PageIndex, param.PageSize);
             }
@@ -250,27 +242,25 @@ namespace Service
             try
             {
                 var rep = new Repository<User>(_db);
+                var queryable = rep.Get();
 
-                Expression<Func<User, bool>> filter = null;
                 if (param.searchPromoter)
-                    filter = f => f.MyAgentLevel >= ConstClass.PromoterLevelId;
+                    queryable = queryable.Where(f => f.MyAgentLevel >= ConstClass.PromoterLevelId);
 
                 if (param.GameId != 0)
-                    filter = f => f.GameId == param.GameId;
+                    queryable = queryable.Where(f => f.GameId == param.GameId);
                 if (!string.IsNullOrEmpty(param.GameName))
-                    filter = f => f.GameName.Contains(param.GameName);
+                    queryable = queryable.Where(f => f.GameName.Contains(param.GameName));
 
                 if (!string.IsNullOrEmpty(param.UserKey))
-                    filter = f => f.UserId == Convert.ToInt32(param.UserKey) ||
+                    queryable = queryable.Where(f => f.UserId == Convert.ToInt32(param.UserKey) ||
                                   f.NickName.Contains(param.UserKey) ||
-                                  f.PhoneNo.Contains(param.UserKey);
+                                  f.PhoneNo.Contains(param.UserKey));
                 if (param.MyAgentLevel != 0)
-                    filter = f => f.MyAgentLevel == param.MyAgentLevel;
+                    queryable = queryable.Where(f => f.MyAgentLevel == param.MyAgentLevel);
 
-                var list = filter != null ? rep.Get(filter) : rep.Get();
-
-                var count = list.Count();
-                var result = list.OrderBy(A => A.UserId)
+                var count = queryable.Count();
+                var result = queryable.OrderBy(o => o.UserId)
                     .Skip((param.PageIndex - 1) * param.PageSize).Take(param.PageSize).ToList();
                 return ConstClass.Success.SetResultPager(result, count, param.PageIndex, param.PageSize);
             }
@@ -283,44 +273,42 @@ namespace Service
 
 
         /// <summary>
-        /// 查询所有充值订单
+        /// 查询所有返利订单
         /// </summary>
         /// <param name="param">查询参数</param>
         /// <returns></returns>
-        public ResultModelPager<List<Charge>> GetCharge(ParamUserAgent param)
+        public ResultModelPager<List<Rebate>> GetRebate(ParamUserAgent param)
         {
             try
             {
-                var rep = new Repository<Charge>(_db);
+                var rep = new Repository<Rebate>(_db);
+                var queryable = rep.Get();
 
-                Expression<Func<Charge, bool>> filter = null;
                 if (param.searchPromoter)
-                    filter = f => f.Platform == 1;
+                    queryable = queryable.Where(f => f.Platform == 1);
 
                 if (param.GameId != 0)
-                    filter = f => f.GameId == param.GameId;
+                    queryable = queryable.Where(f => f.GameId == param.GameId);
                 if (!string.IsNullOrEmpty(param.GameName))
-                    filter = f => f.GameName.Contains(param.GameName);
+                    queryable = queryable.Where(f => f.GameName.Contains(param.GameName));
 
                 if (!string.IsNullOrEmpty(param.UserKey))
-                    filter = f => f.ChargeUserId == Convert.ToInt32(param.UserKey) ||
-                                  f.NickName.Contains(param.UserKey);
+                    queryable = queryable.Where(f => f.ChargeUserId == Convert.ToInt32(param.UserKey) ||
+                                  f.NickName.Contains(param.UserKey));
 
                 if (!string.IsNullOrEmpty(param.OrtherUserKey))
-                    filter = f => f.UserId == Convert.ToInt32(param.OrtherUserKey) ||
-                                  f.RealName.Contains(param.OrtherUserKey);
-
-                var list = filter != null ? rep.Get(filter) : rep.Get();
-
-                var count = list.Count();
-                var result = list.OrderByDescending(A => A.Writedate)
+                    queryable = queryable.Where(f => f.UserId == Convert.ToInt32(param.OrtherUserKey) ||
+                                  f.RealName.Contains(param.OrtherUserKey));
+                
+                var count = queryable.Count();
+                var result = queryable.OrderByDescending(o => o.Writedate)
                     .Skip((param.PageIndex - 1) * param.PageSize).Take(param.PageSize).ToList();
                 return ConstClass.Success.SetResultPager(result, count, param.PageIndex, param.PageSize);
             }
             catch (Exception e)
             {
                 LogHelper.WriteToLog("[异常]:" + e, exLogFile);
-                return ConstClass.Exception.SetResultPager<List<Charge>>(null);
+                return ConstClass.Exception.SetResultPager<List<Rebate>>(null);
             }
         }
     }

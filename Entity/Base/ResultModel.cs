@@ -11,6 +11,8 @@ namespace Entity.Base
 
         public T Data { get; set; }
 
+        public string Temp { get; set; }
+
         public override string ToString()
         {
             return ToolsHelper._ConvertTools.SerializeObject(this);

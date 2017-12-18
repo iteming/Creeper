@@ -2,6 +2,7 @@
 {
     public class ConstClass
     {
+        public static int PromoterParentLevelId = 3;
         public static int PromoterLevelId = 4;
         public static string PromoterLevelName = "推广员";
 

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using Creeper.Web.Comm;
+using Creeper.Web.Utils;
 using Service;
 using Entity.Param;
 using Common.Tools;
@@ -26,6 +26,7 @@ namespace Creeper.Web.Controllers
         {
             var result = new AllService().GetAgentLevel(new ParamAgentLevel
             {
+                GameId = param.GameId,
                 keywords = param.keywords,
                 PageIndex = param.page,
                 PageSize = param.rows

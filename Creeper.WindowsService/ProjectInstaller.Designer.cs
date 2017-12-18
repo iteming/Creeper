@@ -39,7 +39,7 @@
 
             // serviceInstaller1
             this.serviceInstaller1.Description = "闲雅麻将数据抓取";
-            //this.serviceInstaller1.ServiceName = "RechargeService";
+            //this.serviceInstaller1.ServiceName = "CreeperService";
             this.serviceInstaller1.ServiceName = "CreeperServiceTest";
 
             // ProjectInstaller

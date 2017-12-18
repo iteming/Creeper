@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Creeper.WindowsService", "C
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Service", "Service\Service.csproj", "{3A986A9F-4F69-4510-95DD-69C3B7DDD918}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Creeper.WX", "Creeper.WX\Creeper.WX.csproj", "{5D82C6E7-B024-41DD-9C7C-88DC8A769B05}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{3A986A9F-4F69-4510-95DD-69C3B7DDD918}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3A986A9F-4F69-4510-95DD-69C3B7DDD918}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3A986A9F-4F69-4510-95DD-69C3B7DDD918}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D82C6E7-B024-41DD-9C7C-88DC8A769B05}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D82C6E7-B024-41DD-9C7C-88DC8A769B05}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D82C6E7-B024-41DD-9C7C-88DC8A769B05}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D82C6E7-B024-41DD-9C7C-88DC8A769B05}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

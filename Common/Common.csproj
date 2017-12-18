@@ -33,6 +33,9 @@
     <Reference Include="BouncyCastle.Crypto">
       <HintPath>..\Lib\BouncyCastle.Crypto.dll</HintPath>
     </Reference>
+    <Reference Include="LitJson">
+      <HintPath>..\Lib\LitJson.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\Lib\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -46,6 +49,10 @@
       <HintPath>..\Lib\System.Net.Http.Formatting.dll</HintPath>
     </Reference>
     <Reference Include="System.Web" />
+    <Reference Include="System.Web.Mvc, Version=4.0.0.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.0.0\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -54,6 +61,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataCaptureService.cs" />
+    <Compile Include="MYLog.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tools\Base64Helper.cs" />
     <Compile Include="Tools\BigInteger.cs" />
@@ -71,6 +79,30 @@
     <Compile Include="Tools\RsaTool.cs" />
     <Compile Include="Tools\SMSHelper.cs" />
     <Compile Include="Tools\ToolsHelper.cs" />
+    <Compile Include="WxModel\WxAccessToken.cs" />
+    <Compile Include="WxModel\WxUserInfo.cs" />
+    <Compile Include="WxPay\JsApiPay.cs" />
+    <Compile Include="WxPay\Lib\HttpService.cs" />
+    <Compile Include="WxPay\Lib\Log.cs" />
+    <Compile Include="WxPay\Lib\MsgConfig.cs" />
+    <Compile Include="WxPay\Lib\Notify.cs" />
+    <Compile Include="WxPay\Lib\PayConfig.cs" />
+    <Compile Include="WxPay\Lib\WxPayApi.cs" />
+    <Compile Include="WxPay\Lib\WxPayConfig.cs" />
+    <Compile Include="WxPay\Lib\WxPayData.cs" />
+    <Compile Include="WxPay\Lib\WxPayException.cs" />
+    <Compile Include="WxShare\JsApiShare.cs" />
+    <Compile Include="WxShare\Lib\ShareUtil.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="WxPay\cert.zip" />
+    <None Include="WxPay\cert\apiclient_cert.p12" />
+    <None Include="WxPay\cert\apiclient_cert.pem" />
+    <None Include="WxPay\cert\apiclient_key.pem" />
+    <None Include="WxPay\cert\rootca.pem" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="WxPay\cert\证书使用说明.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

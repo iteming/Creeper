@@ -1,0 +1,274 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+您 Web 项目的发布/打包进程将使用此文件。您可以通过编辑此 MSBuild 文件
+来自定义该进程的行为。若要了解与此相关的详细信息，请访问 http://go.microsoft.com/fwlink/?LinkID=208121。
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <_PublishTargetUrl>D:\Publish\CW.WX</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="bin/App_global.asax.compiled">
+      <publishTime>12/18/2017 13:53:46</publishTime>
+    </File>
+    <File Include="bin/App_global.asax.dll">
+      <publishTime>12/18/2017 13:53:45</publishTime>
+    </File>
+    <File Include="bin/BouncyCastle.Crypto.dll">
+      <publishTime>12/11/2017 09:30:45</publishTime>
+    </File>
+    <File Include="bin/Common.dll">
+      <publishTime>12/18/2017 13:42:26</publishTime>
+    </File>
+    <File Include="bin/Creeper.WX.dll">
+      <publishTime>12/18/2017 13:53:40</publishTime>
+    </File>
+    <File Include="bin/Entity.dll">
+      <publishTime>12/18/2017 13:42:27</publishTime>
+    </File>
+    <File Include="bin/EntityFramework.dll">
+      <publishTime>12/11/2017 09:31:01</publishTime>
+    </File>
+    <File Include="bin/EntityFramework.SqlServer.dll">
+      <publishTime>12/11/2017 09:31:01</publishTime>
+    </File>
+    <File Include="bin/LitJson.dll">
+      <publishTime>06/26/2017 10:27:36</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Web.Infrastructure.dll">
+      <publishTime>12/11/2017 09:31:41</publishTime>
+    </File>
+    <File Include="bin/Newtonsoft.Json.dll">
+      <publishTime>12/11/2017 09:30:46</publishTime>
+    </File>
+    <File Include="bin/Service.dll">
+      <publishTime>12/18/2017 13:53:38</publishTime>
+    </File>
+    <File Include="bin/System.Web.Helpers.dll">
+      <publishTime>12/11/2017 14:21:43</publishTime>
+    </File>
+    <File Include="bin/System.Web.Mvc.dll">
+      <publishTime>12/11/2017 14:21:43</publishTime>
+    </File>
+    <File Include="bin/System.Web.Optimization.dll">
+      <publishTime>12/11/2017 09:31:22</publishTime>
+    </File>
+    <File Include="bin/System.Web.Razor.dll">
+      <publishTime>12/11/2017 14:21:43</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.Deployment.dll">
+      <publishTime>12/11/2017 14:21:43</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.dll">
+      <publishTime>12/11/2017 14:21:43</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.Razor.dll">
+      <publishTime>12/11/2017 14:21:43</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/EntityFramework.resources.dll">
+      <publishTime>12/11/2017 09:31:02</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/EntityFramework.SqlServer.resources.dll">
+      <publishTime>12/11/2017 09:31:02</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/System.Web.Optimization.resources.dll">
+      <publishTime>12/11/2017 09:31:23</publishTime>
+    </File>
+    <File Include="MP_verify_AzOh9Y34DBnEkFfJ.txt">
+      <publishTime>12/15/2017 14:46:51</publishTime>
+    </File>
+    <File Include="packages.config">
+      <publishTime>12/11/2017 14:21:46</publishTime>
+    </File>
+    <File Include="PrecompiledApp.config">
+      <publishTime>12/18/2017 13:53:42</publishTime>
+    </File>
+    <File Include="public/css/common.css">
+      <publishTime>12/11/2017 18:10:29</publishTime>
+    </File>
+    <File Include="public/css/Login.css">
+      <publishTime>12/12/2017 11:56:48</publishTime>
+    </File>
+    <File Include="public/css/Main.css">
+      <publishTime>12/12/2017 11:42:37</publishTime>
+    </File>
+    <File Include="public/css/mui.min.css">
+      <publishTime>12/11/2017 17:27:50</publishTime>
+    </File>
+    <File Include="public/css/mui.picker.min.css">
+      <publishTime>12/11/2017 18:19:03</publishTime>
+    </File>
+    <File Include="public/css/MyCenter.css">
+      <publishTime>12/14/2017 15:46:34</publishTime>
+    </File>
+    <File Include="public/css/nav.css">
+      <publishTime>12/13/2017 14:29:27</publishTime>
+    </File>
+    <File Include="public/css/Ranking.css">
+      <publishTime>12/13/2017 16:35:49</publishTime>
+    </File>
+    <File Include="public/css/UserGame.css">
+      <publishTime>12/14/2017 16:11:38</publishTime>
+    </File>
+    <File Include="public/css/UserList.css">
+      <publishTime>12/13/2017 14:32:42</publishTime>
+    </File>
+    <File Include="public/images/an.png">
+      <publishTime>12/11/2017 18:09:12</publishTime>
+    </File>
+    <File Include="public/images/dbbg.png">
+      <publishTime>12/11/2017 18:02:19</publishTime>
+    </File>
+    <File Include="public/images/dj1.png">
+      <publishTime>12/11/2017 18:08:35</publishTime>
+    </File>
+    <File Include="public/images/dj2.png">
+      <publishTime>12/11/2017 18:02:36</publishTime>
+    </File>
+    <File Include="public/images/fdj.png">
+      <publishTime>12/11/2017 18:18:04</publishTime>
+    </File>
+    <File Include="public/images/huanguan.png">
+      <publishTime>12/11/2017 18:02:52</publishTime>
+    </File>
+    <File Include="public/images/jbzon.png">
+      <publishTime>12/11/2017 18:32:52</publishTime>
+    </File>
+    <File Include="public/images/jthuixia.png">
+      <publishTime>12/11/2017 17:27:04</publishTime>
+    </File>
+    <File Include="public/images/logo.png">
+      <publishTime>12/11/2017 17:27:34</publishTime>
+    </File>
+    <File Include="public/images/mingxidd.png">
+      <publishTime>12/11/2017 18:03:20</publishTime>
+    </File>
+    <File Include="public/images/msj.png">
+      <publishTime>12/11/2017 18:08:20</publishTime>
+    </File>
+    <File Include="public/images/qq.png">
+      <publishTime>12/11/2017 17:27:22</publishTime>
+    </File>
+    <File Include="public/images/rili.png">
+      <publishTime>12/11/2017 18:25:18</publishTime>
+    </File>
+    <File Include="public/images/shuxian.png">
+      <publishTime>12/11/2017 18:01:15</publishTime>
+    </File>
+    <File Include="public/images/sy1.png">
+      <publishTime>12/11/2017 18:03:40</publishTime>
+    </File>
+    <File Include="public/images/sy2.png">
+      <publishTime>12/11/2017 18:08:56</publishTime>
+    </File>
+    <File Include="public/images/sybg.jpg">
+      <publishTime>12/11/2017 18:01:40</publishTime>
+    </File>
+    <File Include="public/images/wd1.png">
+      <publishTime>12/11/2017 18:08:02</publishTime>
+    </File>
+    <File Include="public/images/wd2.png">
+      <publishTime>12/11/2017 18:03:52</publishTime>
+    </File>
+    <File Include="public/images/yj1.png">
+      <publishTime>12/11/2017 18:08:45</publishTime>
+    </File>
+    <File Include="public/images/yj2.png">
+      <publishTime>12/11/2017 18:04:04</publishTime>
+    </File>
+    <File Include="public/images/yuehui.png">
+      <publishTime>12/12/2017 09:49:31</publishTime>
+    </File>
+    <File Include="public/images/zs.png">
+      <publishTime>12/12/2017 10:08:50</publishTime>
+    </File>
+    <File Include="public/images/zs2.png">
+      <publishTime>12/11/2017 18:04:15</publishTime>
+    </File>
+    <File Include="public/js/ie8-extend.js">
+      <publishTime>12/11/2017 15:08:39</publishTime>
+    </File>
+    <File Include="public/js/ie8-placeholder.js">
+      <publishTime>12/11/2017 15:08:39</publishTime>
+    </File>
+    <File Include="public/js/ie8-respond.js">
+      <publishTime>12/11/2017 15:08:39</publishTime>
+    </File>
+    <File Include="public/js/jquery-1.9.1.min.js">
+      <publishTime>12/11/2017 15:08:39</publishTime>
+    </File>
+    <File Include="public/js/jquery.browser.js">
+      <publishTime>12/11/2017 15:08:39</publishTime>
+    </File>
+    <File Include="public/js/launch.js">
+      <publishTime>12/11/2017 15:08:39</publishTime>
+    </File>
+    <File Include="public/js/mui.min.js">
+      <publishTime>12/11/2017 17:25:24</publishTime>
+    </File>
+    <File Include="public/js/mui.picker.min.js">
+      <publishTime>12/11/2017 18:19:11</publishTime>
+    </File>
+    <File Include="public/js/nav.js">
+      <publishTime>12/12/2017 10:28:40</publishTime>
+    </File>
+    <File Include="public/js/qrcode.js">
+      <publishTime>12/11/2017 15:08:39</publishTime>
+    </File>
+    <File Include="public/js/TC.js">
+      <publishTime>12/11/2017 17:25:16</publishTime>
+    </File>
+    <File Include="Views/Home/Index.cshtml">
+      <publishTime>12/12/2017 11:19:38</publishTime>
+    </File>
+    <File Include="Views/Home/Login.cshtml">
+      <publishTime>12/18/2017 12:05:26</publishTime>
+    </File>
+    <File Include="Views/Promoter/Index.cshtml">
+      <publishTime>12/11/2017 17:14:19</publishTime>
+    </File>
+    <File Include="Views/Promoter/Main.cshtml">
+      <publishTime>12/13/2017 15:55:54</publishTime>
+    </File>
+    <File Include="Views/Promoter/MyCenter.cshtml">
+      <publishTime>12/14/2017 16:14:19</publishTime>
+    </File>
+    <File Include="Views/Promoter/PerformanceRanking.cshtml">
+      <publishTime>12/13/2017 18:01:22</publishTime>
+    </File>
+    <File Include="Views/Promoter/UserGame.cshtml">
+      <publishTime>12/14/2017 15:59:31</publishTime>
+    </File>
+    <File Include="Views/Promoter/UserList.cshtml">
+      <publishTime>12/13/2017 16:24:15</publishTime>
+    </File>
+    <File Include="Views/Shared/Error.cshtml">
+      <publishTime>12/11/2017 15:24:37</publishTime>
+    </File>
+    <File Include="Views/Shared/_Layout.cshtml">
+      <publishTime>12/12/2017 13:03:13</publishTime>
+    </File>
+    <File Include="Views/Shared/_PartialMenu.cshtml">
+      <publishTime>12/12/2017 10:29:50</publishTime>
+    </File>
+    <File Include="Views/Shared/_PartialPicker.cshtml">
+      <publishTime>12/12/2017 11:53:13</publishTime>
+    </File>
+    <File Include="Views/Web.config">
+      <publishTime>12/11/2017 14:19:33</publishTime>
+    </File>
+    <File Include="Views/WxPay/Default.cshtml">
+      <publishTime>12/15/2017 11:05:16</publishTime>
+    </File>
+    <File Include="Views/WxPay/Recharge.cshtml">
+      <publishTime>12/11/2017 14:19:33</publishTime>
+    </File>
+    <File Include="Views/_ViewStart.cshtml">
+      <publishTime>12/11/2017 14:19:33</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>12/18/2017 13:53:40</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

@@ -25,11 +25,16 @@
                         <button id="btnDel" type="button" class="btn btn-sm btn-danger " onclick="delData()">
                             <i class="fa fa-remove"></i>删除
                         </button>
+                        <select id="GameId" name="GameId" class="form-control select select-sm select-primary"
+                                style="width: auto; display: inline-block; margin: 9px 5px;">
+                            <option>--选择产品--</option>
+                            <option value="10032" selected>大长安</option>
+                        </select>
                     </div>
 
                     <div class="form-group">
                         <div class="input-group">
-                            <input id="txtSearchKey" type="text" class="input form-control" placeholder="搜索关键字">
+                            <input id="txtSearchKey" type="text" class="form-control" placeholder="搜索关键字">
                             <span class="input-group-btn">
                                 <button id="btnSearch" class="btn btn btn-primary" type="button"> <i class="fa fa-search"></i> 搜索</button>
                             </span>
@@ -63,16 +68,33 @@
                 url: '/AgentLevel/List',
                 mtype: 'post',
                 colNames: ['主键ID', '产品ID', '产品名称', '代理级别', '代理名称', '获得直接用户分成比例',
-                    '获得下级分成比例', '获得下下级分成比例', '是否有效', '操作'],
+                    '获得下级分成比例', '获得下下级分成比例', '获得下下下级分成比例', '是否有效', '操作'],
                 colModel: [
                     { name: 'Id', index: 'Id', hidden: true, width: 60, key: true },
                     { name: 'GameId', index: 'GameId', editable: true, width: 60 },
                     { name: 'GameName', index: 'GameName', width: 90 },
                     { name: 'AgentLevelId', index: 'AgentLevelId', width: 60 },
                     { name: 'AgentLevelName', index: 'AgentLevelName', width: 60 },
-                    { name: 'DProportion', index: 'DProportion', width: 90 },
-                    { name: 'IProportion', index: 'IProportion', width: 90 },
-                    { name: 'IProportion2', index: 'IProportion2', width: 90 },
+                    {
+                        name: 'DProportion', index: 'DProportion', width: 90,
+                        formatter: function (cellValue, options, rowObject)
+                        { return cellValue * 100 + "%"; }
+                    },
+                    {
+                        name: 'IProportion', index: 'IProportion', width: 90,
+                        formatter: function (cellValue, options, rowObject)
+                        { return cellValue * 100 + "%"; }
+                    },
+                    {
+                        name: 'IProportion2', index: 'IProportion2', width: 90,
+                        formatter: function (cellValue, options, rowObject)
+                        { return cellValue * 100 + "%"; }
+                    },
+                    {
+                        name: 'IProportion3', index: 'IProportion3', width: 90,
+                        formatter: function (cellValue, options, rowObject)
+                            { return cellValue * 100 + "%"; }
+                    },
                     {
                         name: 'IsValid', index: 'IsValid', width: 60,
                         formatter: function (cellValue, options, rowObject)
@@ -113,7 +135,8 @@
         // 导航按钮事件
         function searchData() { //搜索
             var json = {
-                keywords: $("#txtSearchKey").val()
+                keywords: $("#txtSearchKey").val(),
+                GameId: $("#GameId").val()
             };
             XPage.Search(json);
         }

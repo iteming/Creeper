@@ -1,0 +1,26 @@
+﻿.managerbar {
+    
+}
+
+#managerbar .cz {
+    width: 25%;
+}
+
+#managerbar .cz5 .rz {
+    background: url(/public/images/zs2.png) no-repeat center top;
+    background-size: 100%;
+}
+
+    #managerbar .cz5 .rz.active {
+        background: url(/public/images/zs.png) no-repeat center top;
+        background-size: 100%;
+    }
+
+#managerbar .cz .rz {
+    width: 60%;
+    height: 12vw;
+    line-height: 12vw;
+    margin: 0 auto;
+    margin-top: 10%;
+    margin-bottom: 5%;
+}

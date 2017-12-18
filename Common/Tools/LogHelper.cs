@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -133,7 +134,6 @@ namespace Common.Tools
         /// </summary>
         public static string line_spaces = "\r\n                         ";
 
-
         public static void OutPutLogs(string logData, string directoryName)
         {
             try
@@ -161,6 +161,19 @@ namespace Common.Tools
             }
             catch
             { }
+        }
+
+        public static T LogFuncRuntime<T>(string filePartName, string msg, Func<T> func)
+        {
+            if (func == null) throw new ArgumentNullException("func");
+
+            Stopwatch timer = new Stopwatch();
+            timer.Start();
+            var result = func();
+            timer.Stop();
+            LogHelper.WriteToLog(string.Format("{0}:耗费{1}毫秒。 {2}", msg,
+                timer.ElapsedMilliseconds, timer.ElapsedMilliseconds > 500 ? "超过性能要求标准。" : ""), filePartName);
+            return result;
         }
     }
 }

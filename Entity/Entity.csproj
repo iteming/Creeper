@@ -60,6 +60,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Base\AgentApply.cs" />
+    <Compile Include="Base\Rebate.cs" />
     <Compile Include="Base\Charge.cs" />
     <Compile Include="Base\ConstClass.cs" />
     <Compile Include="Base\User.cs" />
@@ -69,18 +70,29 @@
     <Compile Include="Base\Admin.cs" />
     <Compile Include="Base\ResultModel.cs" />
     <Compile Include="DbHelper.cs" />
+    <Compile Include="Dto\DtoRebateStatistics.cs" />
+    <Compile Include="Dto\DtoUserGame.cs" />
+    <Compile Include="Dto\DtoUserRanking.cs" />
     <Compile Include="IRepository.cs" />
-    <Compile Include="Migrations\201712090631465_20171209.cs" />
-    <Compile Include="Migrations\201712090631465_20171209.Designer.cs">
-      <DependentUpon>201712090631465_20171209.cs</DependentUpon>
+    <Compile Include="Migrations\201712110802418_121116.cs" />
+    <Compile Include="Migrations\201712110802418_121116.Designer.cs">
+      <DependentUpon>201712110802418_121116.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201712091655071_2017121001.cs" />
-    <Compile Include="Migrations\201712091655071_2017121001.Designer.cs">
-      <DependentUpon>201712091655071_2017121001.cs</DependentUpon>
+    <Compile Include="Migrations\201712120900220_121217.cs" />
+    <Compile Include="Migrations\201712120900220_121217.Designer.cs">
+      <DependentUpon>201712120900220_121217.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201712101204054_2017121020.cs" />
-    <Compile Include="Migrations\201712101204054_2017121020.Designer.cs">
-      <DependentUpon>201712101204054_2017121020.cs</DependentUpon>
+    <Compile Include="Migrations\201712140930320_17121417.cs" />
+    <Compile Include="Migrations\201712140930320_17121417.Designer.cs">
+      <DependentUpon>201712140930320_17121417.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712150318579_17121511.cs" />
+    <Compile Include="Migrations\201712150318579_17121511.Designer.cs">
+      <DependentUpon>201712150318579_17121511.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712151022428_17121518.cs" />
+    <Compile Include="Migrations\201712151022428_17121518.Designer.cs">
+      <DependentUpon>201712151022428_17121518.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Param\ParamJqGrid.cs" />
@@ -89,6 +101,8 @@
     <Compile Include="Param\ParamLogin.cs" />
     <Compile Include="Param\ParamPager.cs" />
     <Compile Include="Param\ParamProduct.cs" />
+    <Compile Include="Param\ParamUserList.cs" />
+    <Compile Include="PredicateBuilder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository.cs" />
   </ItemGroup>
@@ -110,14 +124,20 @@
     <Content Include="Migrations\readme.txt" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201712090631465_20171209.resx">
-      <DependentUpon>201712090631465_20171209.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201712110802418_121116.resx">
+      <DependentUpon>201712110802418_121116.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201712091655071_2017121001.resx">
-      <DependentUpon>201712091655071_2017121001.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201712120900220_121217.resx">
+      <DependentUpon>201712120900220_121217.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201712101204054_2017121020.resx">
-      <DependentUpon>201712101204054_2017121020.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201712140930320_17121417.resx">
+      <DependentUpon>201712140930320_17121417.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712150318579_17121511.resx">
+      <DependentUpon>201712150318579_17121511.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712151022428_17121518.resx">
+      <DependentUpon>201712151022428_17121518.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
